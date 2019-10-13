@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SettingsComponent } from './settings/settings.component';
+import { AddTransactionComponent } from './add-transaction/add-transaction.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SettingsComponent,
+    AddTransactionComponent
   ],
   imports: [
     BrowserModule,
