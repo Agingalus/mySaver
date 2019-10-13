@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AddTransactionComponent } from './add-transaction/add-transaction.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SettingsComponent,
-    AddTransactionComponent
+    AddTransactionComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
