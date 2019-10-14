@@ -7,6 +7,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { AddTransactionComponent } from './add-transaction/add-transaction.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HomeComponent } from './home/home.component';
     SettingsComponent,
     AddTransactionComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    TransactionHistoryComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,
