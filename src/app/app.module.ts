@@ -9,6 +9,10 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
 import { ReportsComponent } from './reports/reports.component';
+import { AboutComponent } from './about/about.component';
+import { PremiumPlanComponent } from './premium-plan/premium-plan.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { BudgetComponent } from './budget/budget.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { ReportsComponent } from './reports/reports.component';
     HeaderComponent,
     HomeComponent,
     TransactionHistoryComponent,
-    ReportsComponent
+    ReportsComponent,
+    AboutComponent,
+    PremiumPlanComponent,
+    UserProfileComponent,
+    BudgetComponent
   ],
   imports: [
     BrowserModule,
