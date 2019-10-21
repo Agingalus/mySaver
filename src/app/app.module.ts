@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,9 @@ import { AboutComponent } from './about/about.component';
 import { PremiumPlanComponent } from './premium-plan/premium-plan.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BudgetComponent } from './budget/budget.component';
+import { HeaderHomeComponent } from './header-home/header-home.component';
+import { ChartHomeComponent } from './chart-home/chart-home.component';
+import { RecentTransactionsHomeComponent } from './recent-transactions-home/recent-transactions-home.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +31,15 @@ import { BudgetComponent } from './budget/budget.component';
     AboutComponent,
     PremiumPlanComponent,
     UserProfileComponent,
-    BudgetComponent
+    BudgetComponent,
+    HeaderHomeComponent,
+    ChartHomeComponent,
+    RecentTransactionsHomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

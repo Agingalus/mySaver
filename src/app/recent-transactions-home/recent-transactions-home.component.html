@@ -1,0 +1,19 @@
+<p class="header"> id emsp type amount date: account</p>
+
+<ul>
+    <li *ngFor="let fakeData of fakeDatas ">
+        hi {{ fakeData.id}} bye {{ fakeData.amount}}
+    </li>
+</ul>
+
+<table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+    <tr *ngFor="let fakeData of fakeDatas ">
+        <td>{{fakeData.id}}</td>
+        <td>{{fakeData.name}}</td>
+        <td>{{fakeData.type}}</td>
+        <td>{{fakeData.amount}}</td>
+        <td>{{fakeData.date}}</td>
+        <td>{{fakeData.account}}</td>
+
+    </tr>
+</table>
