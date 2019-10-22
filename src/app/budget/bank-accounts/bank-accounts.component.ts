@@ -17,13 +17,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 2, name: 'Saving', limit: 4.0026, balance: 3445},
   {position: 3, name: 'Checking', limit: 6.941, balance: 4566},
 ];
-
 @Component({
-  selector: 'app-budget',
-  templateUrl: './budget.component.html',
-  styleUrls: ['./budget.component.css']
+  selector: 'app-bank-accounts',
+  templateUrl: './bank-accounts.component.html',
+  styleUrls: ['./bank-accounts.component.css']
 })
-export class BudgetComponent implements OnInit {
+export class BankAccountsComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'limit', 'balance'];
   dataSource = ELEMENT_DATA;
 
@@ -32,7 +31,6 @@ export class BudgetComponent implements OnInit {
     {value: '2', viewValue: 'Saving'},
   
   ];
-
   constructor() { }
 
   ngOnInit() {

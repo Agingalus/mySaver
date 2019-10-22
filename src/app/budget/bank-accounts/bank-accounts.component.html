@@ -1,0 +1,64 @@
+
+<mat-card>
+        <h1>Banking Accounts</h1>
+    
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container>
+    
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+    
+            <!-- Weight Column -->
+            <ng-container matColumnDef="limit">
+                <th mat-header-cell *matHeaderCellDef> Limit </th>
+                <td mat-cell *matCellDef="let element"> ${{element.limit}} </td>
+            </ng-container>
+    
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="balance">
+                <th mat-header-cell *matHeaderCellDef> Balance </th>
+                <td mat-cell *matCellDef="let element"> ${{element.balance}} <button mat-button>Edit</button></td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        </table>
+    
+        <div class="flex">
+            <p>Add Account:</p>
+            <mat-form-field>
+                <mat-label>Account Type</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Account Name" value="">
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Account Limit" value="">
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Balance" value="">
+            </mat-form-field>
+    
+            <button mat-button>Save</button>
+        </div>
+    
+
+    </mat-card>
+    

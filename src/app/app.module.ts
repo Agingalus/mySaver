@@ -13,6 +13,15 @@ import { AboutComponent } from './about/about.component';
 import { PremiumPlanComponent } from './premium-plan/premium-plan.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BudgetComponent } from './budget/budget.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import { BankAccountsComponent } from './budget/bank-accounts/bank-accounts.component';
+import { RecTransactionsComponent } from './budget/rec-transactions/rec-transactions.component';
+import { BugetGoalsComponent } from './budget/buget-goals/buget-goals.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +35,20 @@ import { BudgetComponent } from './budget/budget.component';
     AboutComponent,
     PremiumPlanComponent,
     UserProfileComponent,
-    BudgetComponent
+    BudgetComponent,
+    BankAccountsComponent,
+    RecTransactionsComponent,
+    BugetGoalsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatSelectModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
