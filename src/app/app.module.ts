@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatDividerModule } from '@angular/material/divider';
-
-
+/*import { MatDividerModule } from '@angular/material/divider'; */
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -15,9 +13,9 @@ import { AboutComponent } from './about/about.component';
 import { PremiumPlanComponent } from './premium-plan/premium-plan.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BudgetComponent } from './budget/budget.component';
-import { HeaderHomeComponent } from './header-home/header-home.component';
-import { ChartHomeComponent } from './chart-home/chart-home.component';
-import { RecentTransactionsHomeComponent } from './recent-transactions-home/recent-transactions-home.component';
+import { HomeHeaderComponent } from './home-header/home-header.component';
+import { HomeChartComponent } from './home-chart/home-chart.component';
+import { HomeRecentTransactionsComponent } from './home-recent-transactions/home-recent-transactions.component';
 
 @NgModule({
   declarations: [
@@ -32,14 +30,14 @@ import { RecentTransactionsHomeComponent } from './recent-transactions-home/rece
     PremiumPlanComponent,
     UserProfileComponent,
     BudgetComponent,
-    HeaderHomeComponent,
-    ChartHomeComponent,
-    RecentTransactionsHomeComponent
+    HomeHeaderComponent,
+    HomeChartComponent,
+    HomeRecentTransactionsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatDividerModule
+    /*MatDividerModule*/
   ],
   providers: [],
   bootstrap: [AppComponent]
