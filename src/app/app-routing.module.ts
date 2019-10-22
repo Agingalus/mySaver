@@ -1,9 +1,9 @@
 import { NgModule, Component } from '@angular/core'; // <---------------- Do we need Component? 
 import { Routes, RouterModule } from '@angular/router';
 import { SettingsComponent } from './settings/settings.component';
-import { AddTransactionComponent } from './add-transaction/add-transaction.component';
+import { TransactionPageAddComponent } from './transactionpage-add/transactionpage-add.component';
 import { HomeComponent } from './home/home.component';
-import { TransactionHistoryComponent } from './transaction-history/transaction-history.component';
+import { TransactionPageHistoryComponent } from './transactionpage-history/transactionpage-history.component';
 import { ReportsComponent } from './reports/reports.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AboutComponent } from './about/about.component';
@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: "transactionHistory",
-    component: TransactionHistoryComponent
+    component: TransactionPageHistoryComponent
   },
   {
     path: "settings",
@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path: "addTransaction",
-    component: AddTransactionComponent
+    component: TransactionPageAddComponent
   }, 
   {
     path: "userProfile",
