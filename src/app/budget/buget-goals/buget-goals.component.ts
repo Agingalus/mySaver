@@ -33,7 +33,6 @@ export class BugetGoalsComponent implements OnInit {
     {value: '4', viewValue: 'Shopping'},
     {value: '5', viewValue: 'Fitness'},
   
-  
   ];
   constructor() { }
 
