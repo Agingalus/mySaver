@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from "../app.component";
+import { AppComponent } from "../app.component"; // <---------------------- Why is this here? 
 import { data } from "../fakeData"
 
 @Component({
@@ -8,12 +8,12 @@ import { data } from "../fakeData"
   styleUrls: ['./home-recent-transactions.component.css']
 })
 export class HomeRecentTransactionsComponent implements OnInit {
-  heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+  heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado']; // <---------------------- Why is this here? 
   myData = new data();
   fakeDatas = this.myData.info;
 
 
-  // ];
+  // ]; <---------------------------------------------------------- Why is this here? 
   constructor() {
 
   }

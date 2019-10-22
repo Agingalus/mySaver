@@ -1,8 +1,7 @@
 <div>
-    <p class="header"> id type amount date: account</p>
+    <p class="header"> ID Name Type Currency Amount Date Account</p> <!--This is the header for the table-->
 
-
-    <table ng-table="tableParams" class="table table-condensed table-bordered table-striped">
+    <table ng-table="tableParams" class="table table-condensed table-bordered table-striped"> <!--Bug. Formatting is not happening--> 
         <tr *ngFor="let fakeData of fakeDatas ">
             <td>{{fakeData.id}}</td>
             <td>{{fakeData.name}}</td>

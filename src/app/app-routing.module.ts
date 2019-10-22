@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule, Component } from '@angular/core'; // <---------------- Do we need Component? 
 import { Routes, RouterModule } from '@angular/router';
 import { SettingsComponent } from './settings/settings.component';
 import { AddTransactionComponent } from './add-transaction/add-transaction.component';
