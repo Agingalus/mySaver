@@ -40,7 +40,7 @@ import { TransactionPageComponent } from './transactionpage/transactionpage.comp
     BudgetComponent,
     BankAccountsComponent,
     RecTransactionsComponent,
-    BugetGoalsComponent
+    BugetGoalsComponent,
     HomeHeaderComponent,
     HomeChartComponent,
     HomeRecentTransactionsComponent,
