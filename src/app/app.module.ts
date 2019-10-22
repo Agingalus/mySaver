@@ -16,6 +16,7 @@ import { HomeChartComponent } from './home-chart/home-chart.component';
 import { HomeRecentTransactionsComponent } from './home-recent-transactions/home-recent-transactions.component';
 import { TransactionPageAddComponent } from './transactionpage-add/transactionpage-add.component';
 import { TransactionPageHistoryComponent } from './transactionpage-history/transactionpage-history.component';
+import { TransactionPageComponent } from './transactionpage/transactionpage.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TransactionPageHistoryComponent } from './transactionpage-history/trans
     HomeChartComponent,
     HomeRecentTransactionsComponent,
     TransactionPageAddComponent,
-    TransactionPageHistoryComponent
+    TransactionPageHistoryComponent,
+    TransactionPageComponent
   ],
   imports: [
     BrowserModule,

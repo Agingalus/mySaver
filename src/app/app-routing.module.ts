@@ -9,6 +9,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AboutComponent } from './about/about.component';
 import { PremiumPlanComponent } from './premium-plan/premium-plan.component';
 import { BudgetComponent } from './budget/budget.component';
+import { TransactionPageComponent } from './transactionpage/transactionpage.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,7 @@ const routes: Routes = [
     component: SettingsComponent
   },
   {
-    path: "addTransaction",
+    path: "transactionAdd",
     component: TransactionPageAddComponent
   }, 
   {
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: "budgetPage",
     component: BudgetComponent
+  },
+  {
+    path: "transactionPage",
+    component: TransactionPageComponent
   }, 
   {
     path: "",
