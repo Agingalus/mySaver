@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TransactionPageHistoryComponent } from './transactionpage-history.component';
 
-describe('TransactionHistoryComponent', () => {
+describe('TransactionPageHistoryComponent', () => {
   let component: TransactionPageHistoryComponent;
   let fixture: ComponentFixture<TransactionPageHistoryComponent>;
 
