@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { data } from "../fakeData"
+=======
+import { data } from "../../fakeData"
+>>>>>>> sprint3k
 export interface PeriodicElement {
   id: Number;
   name: string;

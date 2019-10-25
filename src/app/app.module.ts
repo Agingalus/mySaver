@@ -12,21 +12,21 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BudgetComponent } from './budget/budget.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
-import { MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatTableModule} from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 import { BankAccountsComponent } from './budget/bank-accounts/bank-accounts.component';
 import { RecTransactionsComponent } from './budget/rec-transactions/rec-transactions.component';
 import { BugetGoalsComponent } from './budget/buget-goals/buget-goals.component';
 import { HomeComponent } from './home/home.component';
-import { HomeHeaderComponent } from './home-header/home-header.component';
-import { HomeChartComponent } from './home-chart/home-chart.component';
-import { HomeRecentTransactionsComponent } from './home-recent-transactions/home-recent-transactions.component';
-import { TransactionPageAddComponent } from './transactionpage-add/transactionpage-add.component';
-import { TransactionPageHistoryComponent } from './transactionpage-history/transactionpage-history.component';
+import { HomeHeaderComponent } from './home/home-header/home-header.component';
+import { HomeChartComponent } from './home/home-chart/home-chart.component';
+import { HomeRecentTransactionsComponent } from './home/home-recent-transactions/home-recent-transactions.component';
+import { TransactionPageAddComponent } from './transactionpage/transactionpage-add/transactionpage-add.component';
+import { TransactionPageHistoryComponent } from './transactionpage/transactionpage-history/transactionpage-history.component';
 import { TransactionPageComponent } from './transactionpage/transactionpage.component';
-import { transactionPageButtonsComponent } from './transactionpage-buttons/transactionpage-buttons.component';
+import { transactionPageButtonsComponent } from './transactionpage/transactionpage-buttons/transactionpage-buttons.component';
 
 @NgModule({
   declarations: [
