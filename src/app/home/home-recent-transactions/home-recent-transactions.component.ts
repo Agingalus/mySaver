@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { data } from "../fakeData"
+import { data } from "../../fakeData"
 export interface PeriodicElement {
   id: Number;
   name: string;
