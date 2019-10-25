@@ -5,7 +5,6 @@ import { TransactionPageAddComponent } from './transactionpage-add/transactionpa
 import { HomeComponent } from './home/home.component';
 import { TransactionPageHistoryComponent } from './transactionpage-history/transactionpage-history.component';
 import { ReportsComponent } from './reports/reports.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AboutComponent } from './about/about.component';
 import { PremiumPlanComponent } from './premium-plan/premium-plan.component';
 import { BudgetComponent } from './budget/budget.component';
@@ -28,10 +27,6 @@ const routes: Routes = [
   {
     path: "transactionAdd",
     component: TransactionPageAddComponent
-  }, 
-  {
-    path: "userProfile",
-    component: UserProfileComponent
   }, 
   {
     path: "aboutPage",

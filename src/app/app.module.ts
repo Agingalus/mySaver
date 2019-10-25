@@ -8,7 +8,6 @@ import { HeaderComponent } from './header/header.component';
 import { ReportsComponent } from './reports/reports.component';
 import { AboutComponent } from './about/about.component';
 import { PremiumPlanComponent } from './premium-plan/premium-plan.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BudgetComponent } from './budget/budget.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
@@ -27,6 +26,10 @@ import { TransactionPageAddComponent } from './transactionpage-add/transactionpa
 import { TransactionPageHistoryComponent } from './transactionpage-history/transactionpage-history.component';
 import { TransactionPageComponent } from './transactionpage/transactionpage.component';
 import { transactionPageButtonsComponent } from './transactionpage-buttons/transactionpage-buttons.component';
+import { SettingsCardComponent } from './settings/settings-card/settings-card.component';
+import { ProfileCardComponent } from './settings/profile-card/profile-card.component';
+import { ReportMainComponent } from './reports/report-main/report-main.component';
+import { AboutMainComponent } from './about/about-main/about-main.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,6 @@ import { transactionPageButtonsComponent } from './transactionpage-buttons/trans
     ReportsComponent,
     AboutComponent,
     PremiumPlanComponent,
-    UserProfileComponent,
     BudgetComponent,
     BankAccountsComponent,
     RecTransactionsComponent,
@@ -48,7 +50,11 @@ import { transactionPageButtonsComponent } from './transactionpage-buttons/trans
     TransactionPageAddComponent,
     TransactionPageHistoryComponent,
     TransactionPageComponent,
-    transactionPageButtonsComponent
+    transactionPageButtonsComponent,
+    SettingsCardComponent,
+    ProfileCardComponent,
+    ReportMainComponent,
+    AboutMainComponent
   ],
   imports: [
     BrowserModule,
