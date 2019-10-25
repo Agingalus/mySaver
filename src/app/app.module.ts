@@ -36,7 +36,6 @@ import { transactionPageButtonsComponent } from './transactionpage/transactionpa
     ReportsComponent,
     AboutComponent,
     PremiumPlanComponent,
-    UserProfileComponent,
     BudgetComponent,
     BankAccountsComponent,
     RecTransactionsComponent,
