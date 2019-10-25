@@ -26,6 +26,10 @@ import { TransactionPageAddComponent } from './transactionpage/transactionpage-a
 import { TransactionPageHistoryComponent } from './transactionpage/transactionpage-history/transactionpage-history.component';
 import { TransactionPageComponent } from './transactionpage/transactionpage.component';
 import { transactionPageButtonsComponent } from './transactionpage/transactionpage-buttons/transactionpage-buttons.component';
+import { SettingsCardComponent } from './settings/settings-card/settings-card.component';
+import { ProfileCardComponent } from './settings/profile-card/profile-card.component';
+import { ReportMainComponent } from './reports/report-main/report-main.component';
+import { AboutMainComponent } from './about/about-main/about-main.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import { transactionPageButtonsComponent } from './transactionpage/transactionpa
     TransactionPageAddComponent,
     TransactionPageHistoryComponent,
     TransactionPageComponent,
-    transactionPageButtonsComponent
+    transactionPageButtonsComponent,
+    SettingsCardComponent,
+    ProfileCardComponent,
+    ReportMainComponent,
+    AboutMainComponent
   ],
   imports: [
     BrowserModule,
