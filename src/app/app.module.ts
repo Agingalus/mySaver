@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-/*import { MatDividerModule } from '@angular/material/divider'; */
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -31,6 +30,21 @@ import { ProfileCardComponent } from './settings/profile-card/profile-card.compo
 import { ReportMainComponent } from './reports/report-main/report-main.component';
 import { AboutMainComponent } from './about/about-main/about-main.component';
 
+//pie
+// Import angular-fusioncharts
+
+
+import { FusionChartsModule } from "angular-fusioncharts";
+
+// Import FusionCharts library and chart modules
+import * as FusionCharts from "fusioncharts";
+import * as Charts from "fusioncharts/fusioncharts.charts";
+
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+
+// Pass the fusioncharts library and chart modules
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +68,8 @@ import { AboutMainComponent } from './about/about-main/about-main.component';
     SettingsCardComponent,
     ProfileCardComponent,
     ReportMainComponent,
-    AboutMainComponent
+    AboutMainComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -64,8 +79,8 @@ import { AboutMainComponent } from './about/about-main/about-main.component';
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
-    MatTableModule
-    /*MatDividerModule*/
+    MatTableModule,
+    FusionChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
