@@ -29,6 +29,7 @@ import { SettingsCardComponent } from './settings/settings-card/settings-card.co
 import { ProfileCardComponent } from './settings/profile-card/profile-card.component';
 import { ReportMainComponent } from './reports/report-main/report-main.component';
 import { AboutMainComponent } from './about/about-main/about-main.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 //pie
 // Import angular-fusioncharts
@@ -80,7 +81,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MatInputModule,
     MatButtonModule,
     MatTableModule,
-    FusionChartsModule
+    FusionChartsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

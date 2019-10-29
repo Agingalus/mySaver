@@ -1,4 +1,38 @@
 <mat-card>
     <h1>Settings</h1>
-<p>This is where the user can change language, currency, and color theme of their account</p>
+<mat-card>
+    <h2>Select your color theme</h2>
+    <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+</mat-card>
+
+<mat-card>
+    <h2>Select your language</h2>
+    <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+</mat-card>
+
+<mat-card>
+    <h2>Select your currency</h2>
+    <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                    {{food.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+</mat-card>
 </mat-card>
