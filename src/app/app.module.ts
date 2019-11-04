@@ -29,7 +29,9 @@ import { SettingsCardComponent } from './settings/settings-card/settings-card.co
 import { ProfileCardComponent } from './settings/profile-card/profile-card.component';
 import { ReportMainComponent } from './reports/report-main/report-main.component';
 import { AboutMainComponent } from './about/about-main/about-main.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 //pie
 // Import angular-fusioncharts
@@ -70,6 +72,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ProfileCardComponent,
     ReportMainComponent,
     AboutMainComponent,
+    MatPaginatorModule
 
   ],
   imports: [
@@ -82,7 +85,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MatButtonModule,
     MatTableModule,
     FusionChartsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
