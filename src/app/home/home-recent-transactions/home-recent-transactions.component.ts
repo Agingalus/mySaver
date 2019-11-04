@@ -6,7 +6,11 @@ import { Transactions } from '../../transaction';
 import { TransactionService } from '../../service'
 import { Router } from '@angular/router';
 
-
+// let preTransaction = new Transactions();
+// preTransaction.AccountID = 0;
+// preTransaction.Amount = 0;
+// preTransaction.Payee = 'none'
+// preTransaction.Category = 0;
 @Component({
   selector: 'app-home-recent-transactions',
   templateUrl: './home-recent-transactions.component.html',
@@ -19,7 +23,10 @@ export class HomeRecentTransactionsComponent implements OnInit {
   //fakeDatas = this.myData.info;
   displayedColumns: string[] = ['AccountID', 'Payee', 'Category', 'Amount'];
   //dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  ourTransactions: Transactions[];
+
+
+  //ourTransactions: Transactions[] = [preTransaction];
+  ourTransactions: Transactions[]
   dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
   //dataSource = ELEMENT_DATA;
 
@@ -37,8 +44,9 @@ export class HomeRecentTransactionsComponent implements OnInit {
   }
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   ngOnInit() {
-    this.getTransactions();
 
+    this.getTransactions();
+    //this.dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
     this.dataSource.paginator = this.paginator;
   }
 

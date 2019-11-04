@@ -72,7 +72,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ProfileCardComponent,
     ReportMainComponent,
     AboutMainComponent,
-    MatPaginatorModule
+
 
   ],
   imports: [
@@ -86,7 +86,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     MatTableModule,
     FusionChartsModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
