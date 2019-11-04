@@ -25,8 +25,7 @@ export class HomeRecentTransactionsComponent implements OnInit {
   //dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
 
-  //ourTransactions: Transactions[] = [preTransaction];
-  ourTransactions: Transactions[]
+  ourTransactions: Transactions[] //= [preTransaction, preTransaction, preTransaction];
   dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
   //dataSource = ELEMENT_DATA;
 
@@ -36,6 +35,7 @@ export class HomeRecentTransactionsComponent implements OnInit {
       console.log("this is from home-recent-transactions");
       console.log(this.ourTransactions);
       this.dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
+      this.dataSource.paginator = this.paginator;
     })
   }
 
@@ -46,7 +46,7 @@ export class HomeRecentTransactionsComponent implements OnInit {
   ngOnInit() {
 
     this.getTransactions();
-    //this.dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
+    this.dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
     this.dataSource.paginator = this.paginator;
   }
 
