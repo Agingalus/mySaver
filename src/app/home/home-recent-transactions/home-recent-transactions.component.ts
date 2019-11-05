@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 // preTransaction.Amount = 0;
 // preTransaction.Payee = 'none'
 // preTransaction.Category = 0;
+
+
 @Component({
   selector: 'app-home-recent-transactions',
   templateUrl: './home-recent-transactions.component.html',
@@ -23,6 +25,7 @@ export class HomeRecentTransactionsComponent implements OnInit {
   //fakeDatas = this.myData.info;
   displayedColumns: string[] = ['AccountID', 'Payee', 'Category', 'Amount'];
   //dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
 
 
   ourTransactions: Transactions[] //= [preTransaction, preTransaction, preTransaction];
