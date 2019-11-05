@@ -1,30 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  limit: number;
-  description: string;
-}
+import { Component, OnInit, ViewChild} from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { Budgets} from '../../budgets';
+import { BudgetService } from '../../service'
+import { Router } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
 
 export interface Food {
   value: string;
   viewValue: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Education', limit: 500, description: "Paying for classes"},
-  {position: 2, name: 'Groceries', limit: 350, description: "Keep food budget under $300"},
-  {position: 3, name: 'Living', limit: 3000, description: "Rent, utilities"},
-  {position: 4, name: 'Transportation', limit: 200, description: "Gas"}
-];
 @Component({
   selector: 'app-buget-goals',
   templateUrl: './buget-goals.component.html',
   styleUrls: ['./buget-goals.component.css']
 })
 export class BugetGoalsComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'limit', 'description'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['BudgetID','GoalCategory', 'GoalAmount' ];
+  
+  ourTransactions: Budgets[] 
+  dataSource = new MatTableDataSource<Budgets>(this.ourTransactions);
+ 
+  getTransactions(): void {
+    this.myTransactionService.getAllBudgets().subscribe((transactionData: Budgets[]) => {
+      this.ourTransactions = transactionData;
+      this.dataSource = new MatTableDataSource<Budgets>(this.ourTransactions);
+      this.dataSource.paginator = this.paginator;
+    })
+  }
+
+  constructor(private myTransactionService: BudgetService, private router: Router) {}
+    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+    ngOnInit() {
+  
+      this.getTransactions();
+      this.dataSource = new MatTableDataSource<Budgets>(this.ourTransactions);
+      this.dataSource.paginator = this.paginator;
+    }
+  
 
   foods: Food[] = [
     {value: '1', viewValue: 'Education'},
@@ -34,9 +47,6 @@ export class BugetGoalsComponent implements OnInit {
     {value: '5', viewValue: 'Fitness'},
   
   ];
-  constructor() { }
 
-  ngOnInit() {
-  }
 
 }

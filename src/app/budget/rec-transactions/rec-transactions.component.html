@@ -2,35 +2,61 @@
         <h1>Recurring Transactions</h1>
 
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
-            <!-- Position Column -->
-            <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-            </ng-container>
-    
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Category</th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-            </ng-container>
-    
-            <!-- Weight Column -->
-            <ng-container matColumnDef="limit">
-                <th mat-header-cell *matHeaderCellDef> Account Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.limit}} </td>
-            </ng-container>
-    
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="balance">
-                <th mat-header-cell *matHeaderCellDef> Balance </th>
-                <td mat-cell *matCellDef="let element"> ${{element.balance}} <button mat-button>Edit</button></td>
-            </ng-container>
-    
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
-        </table>
+
+                <!-- Date Column -->
+                <ng-container matColumnDef="StartDate">
+                     <th mat-header-cell *matHeaderCellDef> StartDate </th>
+                     <td mat-cell *matCellDef="let element "> {{element.StartDate}} </td>
+                 </ng-container>
+ 
+                 <!-- ID Column -->
+                 <ng-container matColumnDef="EndDate">
+                     <th mat-header-cell *matHeaderCellDef> EndDate </th>
+                     <td mat-cell *matCellDef="let element "> {{element.EndDate}} </td>
+                 </ng-container>
+         
+                 <!-- AccountName Column -->
+                 <ng-container matColumnDef="AccountName">
+                     <th mat-header-cell *matHeaderCellDef> AccountName </th>
+                     <td mat-cell *matCellDef="let element"> {{element.AccountName}} </td>
+                 </ng-container>
+         
+                 <!-- Category Column -->
+                 <ng-container matColumnDef="Category">
+                     <th mat-header-cell *matHeaderCellDef> Category</th>
+                     <td mat-cell *matCellDef="let element"> {{element.Category}} </td>
+                 </ng-container>
+ 
+                  <!-- Payee Column -->
+                  <ng-container matColumnDef="Payee">
+                         <th mat-header-cell *matHeaderCellDef> Payee</th>
+                         <td mat-cell *matCellDef="let element"> ${{element.Payee}}
+                     </ng-container>
+ 
+                  <!-- Memo Column -->
+                  <ng-container matColumnDef="Memo">
+                         <th mat-header-cell *matHeaderCellDef> Memo </th>
+                         <td mat-cell *matCellDef="let element"> {{element.Memo}} <button mat-button>Edit</button></td>
+                     </ng-container>
+
+                         <!-- Amount Column -->
+                  <ng-container matColumnDef="Amount">
+                        <th mat-header-cell *matHeaderCellDef> Amount </th>
+                        <td mat-cell *matCellDef="let element"> ${{element.Amount}} <button mat-button>Edit</button></td>
+                    </ng-container>
+
+                        <!-- FrequencyMonths Column -->
+                  <ng-container matColumnDef="FrequencyMonths">
+                        <th mat-header-cell *matHeaderCellDef> FrequencyMonths</th>
+                        <td mat-cell *matCellDef="let element"> {{element.FrequencyMonths}} <button mat-button>Edit</button></td>
+                    </ng-container>
+         
+                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+         
+             </table>
+             <mat-paginator [pageSizeOptions]="[6]" showFirstLastButtons></mat-paginator>
+
     
         <div class="flex">
             <p>Add transaction:</p>

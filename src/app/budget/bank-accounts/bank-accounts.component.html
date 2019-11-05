@@ -1,37 +1,37 @@
 
 <mat-card>
         <h1>Banking Accounts</h1>
-    
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
-            <!-- Position Column -->
-            <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-            </ng-container>
-    
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-            </ng-container>
-    
-            <!-- Weight Column -->
-            <ng-container matColumnDef="limit">
-                <th mat-header-cell *matHeaderCellDef> Limit </th>
-                <td mat-cell *matCellDef="let element"> ${{element.limit}} </td>
-            </ng-container>
-    
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="balance">
-                <th mat-header-cell *matHeaderCellDef> Balance </th>
-                <td mat-cell *matCellDef="let element"> ${{element.balance}} <button mat-button>Edit</button></td>
-            </ng-container>
-    
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
-        </table>
+ 
+                <!-- Bank Column -->
+                <ng-container matColumnDef="Bank">
+                    <th mat-header-cell *matHeaderCellDef> Bank</th>
+                    <td mat-cell *matCellDef="let element "> {{element.bank}} </td>
+                </ng-container>
+        
+                <!-- Available Balance Column -->
+                <ng-container matColumnDef="AvailableBalance">
+                    <th mat-header-cell *matHeaderCellDef> AvailableBalance </th>
+                    <td mat-cell *matCellDef="let element"> {{element.availablebalance}} </td>
+                </ng-container>
+        
+                <!-- Balance Column -->
+                <ng-container matColumnDef="Balance">
+                    <th mat-header-cell *matHeaderCellDef> Balance</th>
+                    <td mat-cell *matCellDef="let element"> ${{element.balance}} </td>
+                </ng-container>
+
+                  <!-- Currency Column -->
+                  <ng-container matColumnDef="Currency">
+                        <th mat-header-cell *matHeaderCellDef> Currency</th>
+                        <td mat-cell *matCellDef="let element"> {{element.currency}} </td>
+                    </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+            </table>
+            <mat-paginator [pageSizeOptions]="[6]" showFirstLastButtons></mat-paginator>
+
     
         <div class="flex">
             <p>Add Account:</p>
