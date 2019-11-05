@@ -7,39 +7,40 @@
             <mat-form-field>
                 <mat-label>Account Type</mat-label>
                 <mat-select>
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                        {{food.viewValue}}
+                    <mat-option *ngFor="let option of options" [value]="option.value">
+                        {{option.viewValue}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
     
-            <mat-form-field class="example-full-width">
+            <!-- <mat-form-field class="example-full-width">
                 <input matInput placeholder="Date" value="">
-            </mat-form-field>
-    
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Account" value="">
-            </mat-form-field>
-    
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Category" value="">
-            </mat-form-field>
+            </mat-form-field> -->
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Payee" value="">
-            </mat-form-field>
+                    <input matInput placeholder="Payee" value="">
+                </mat-form-field>
     
+            <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Category" value="">
+            </mat-form-field>
+            
+            <!-- <mat-form-field class="example-full-width">
+                <input matInput placeholder="Account" value="">
+            </mat-form-field>
+     -->
+
+            <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Amount" value="">
+            </mat-form-field>
+      
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Memo" value="">
             </mat-form-field>
-    
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Amount" value="">
-            </mat-form-field>
 
-            <mat-form-field class="example-full-width">
+            <!-- <mat-form-field class="example-full-width">
                 <input matInput placeholder="Edit details" value="">
-            </mat-form-field>
+            </mat-form-field> -->
     
             <button mat-button>Save</button>
         </div>

@@ -12,7 +12,7 @@ export interface historyData {
   editTransactionOrViewDetails: string;
 }
 
-export interface Food {
+export interface Option {
   value: string;
   viewValue: string;
 }
@@ -31,7 +31,7 @@ export class TransactionPageAddComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'limit', 'balance'];
   dataSource = ELEMENT_DATA;
 
-  foods: Food[] = [
+  options: Option[] = [
     {value: '1', viewValue: 'value1'},
     {value: '2', viewValue: 'value2'},
     {value: '3', viewValue: 'value3'},
