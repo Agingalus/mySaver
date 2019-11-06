@@ -25,14 +25,11 @@ function addByCat(pTransactions) {
   for (let i = 0; i < pTransactions.length; i++) {
     if (totalPerCat[pTransactions[i].Category] == null) {
       totalPerCat[pTransactions[i].Category] = pTransactions[i].Amount;
-
     }
     else {
       totalPerCat[pTransactions[i].Category] += pTransactions[i].Amount
     }
-
   }
-
 }
 
 @Component({
