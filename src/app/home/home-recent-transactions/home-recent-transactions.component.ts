@@ -54,13 +54,13 @@ export class HomeRecentTransactionsComponent implements OnInit {
     this.myTransactionService.getAllTransactions().subscribe((transactionData: Transactions[]) => {
       this.ourTransactions = transactionData;
       this.ourTransactions.sort(compare);
-      console.log("this is from home-recent-transactions");
-      console.log(this.ourTransactions);
+      // console.log("this is from home-recent-transactions");
+      // console.log(this.ourTransactions);
       this.dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
       this.dataSource.paginator = this.paginator;
-      addByCat(this.ourTransactions);
-      console.log("this is all cats added together");
-      console.log(totalPerCat);
+      // addByCat(this.ourTransactions);
+      // console.log("this is all cats added together");
+      // console.log(totalPerCat);
     })
   }
 
@@ -73,6 +73,7 @@ export class HomeRecentTransactionsComponent implements OnInit {
     this.getTransactions();
     this.dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
     this.dataSource.paginator = this.paginator;
+
   }
 
 }

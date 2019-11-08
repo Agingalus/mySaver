@@ -1,4 +1,53 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Category } from "../../categories";
+import { CategoryService } from "../../service";
+import { Transactions } from '../../transaction';
+import { TransactionService } from '../../service';
+
+
+
+function compare(a, b) {
+  if (a.categoryid < b.categoryid) {
+    return -1;
+  }
+  if (a.categoryid > b.categoryid) {
+    return 1;
+  }
+  return 0;
+};
+let totalPerCat = [];
+function addByCat(pTransactions) {
+  console.log(`my lenght is ${pTransactions.length}`)
+  for (let i = 0; i < pTransactions.length; i++) {
+    if (totalPerCat[pTransactions[i].Category] == null) {
+      totalPerCat[pTransactions[i].Category] = pTransactions[i].Amount;
+    }
+    else {
+      totalPerCat[pTransactions[i].Category] += pTransactions[i].Amount
+    }
+  }
+}
+let dataForTable = [];// = [{ label: "", value: 0 }];
+function makeTableData(pOurTransactions, pOurCategories) {
+  // this.getTransactions();
+  // this.getCatagories();
+  console.log(pOurCategories);
+  console.log(pOurTransactions);
+
+  addByCat(pOurTransactions)
+  // totalPerCat.pop();
+  for (let i = 0; i < totalPerCat.length; i++) {
+    if (totalPerCat[i] !== null || totalPerCat[i] == 0 || pOurCategories[i].name !== null) {
+      dataForTable.push({ label: pOurCategories[i].name, value: totalPerCat[i] })
+    }
+
+
+  }
+  console.log("this is the table");
+  console.log(dataForTable)
+  this.dataSource = data
+}
 
 const data = {
   chart: {
@@ -17,31 +66,8 @@ const data = {
     formatNumber: "1",
     formatNumberScale: "0"
   },
-  data: [
-    {
-      label: "Transport",
-      value: "320.23"
-    },
-    {
-      label: "Living",
-      value: "1500"
-    },
-    {
-      label: "Entertainment",
-      value: "78.36"
-    },
-    {
-      label: "Pet",
-      value: "17.01"
-    },
-    {
-      label: "School",
-      value: "2753.36"
-    }
-  ]
+  data: dataForTable
 };
-
-
 @Component({
   selector: 'app-home-chart',
   templateUrl: './home-chart.component.html',
@@ -53,9 +79,54 @@ export class HomeChartComponent implements OnInit {
   type = "pie3d";
   dataFormat = "json";
   dataSource = data;
-  constructor() { }
+
+  ourCategories: Category[];
+  ourTransactions: Transactions[];
+  promiseFn = () => {
+    return new Promise((resolve, reject) => {
+      this.getCatagories();
+      resolve("it Worked.")
+    })
+  }
+  promiseFn2 = () => {
+    return new Promise((resolve, reject) => {
+      this.getTransactions();
+      resolve("it Worked too.")
+    })
+  }
+
+  getCatagories(): void {
+    this.myCategoryService.getAllCategories().subscribe((categoryData: Category[]) => {
+      this.ourCategories = categoryData;
+      this.ourCategories.sort(compare);
+      makeTableData(this.ourTransactions, this.ourCategories);
+
+    })
+  }
+  getTransactions(): void {
+    this.myTransactionService.getAllTransactions().subscribe((transactionData: Transactions[]) => {
+      this.ourTransactions = transactionData;
+
+
+    }
+    )
+  }
+  async myAsync() {
+    await this.promiseFn2()
+    await this.promiseFn()
+  }
+
+
+
+  constructor(private myTransactionService: TransactionService, private myCategoryService: CategoryService, private router: Router) { }
 
   ngOnInit() {
+    // this.getTransactions();
+
+    // this.getCatagories();
+    this.myAsync()
+    this.dataSource = data
+
   }
 
 }

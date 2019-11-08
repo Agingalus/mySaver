@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Transactions } from "./transaction";
-import { RecurringTransactions} from './recurringTransaction';
-import { Accounts} from './accounts';
+import { RecurringTransactions } from './recurringTransaction';
+import { Accounts } from './accounts';
+import { Category } from "./categories";
 
 import { Budgets } from './budgets'
 
@@ -12,14 +13,11 @@ import { Budgets } from './budgets'
 export class TransactionService {
 	constructor(private http: HttpClient) { }
 	getAllTransactions(): Observable<Transactions[]> {
-		//return  this.http.get<Task[]>('http://localhost:3000/tasks');
-		// console.log("hi pal!");
-		// console.log(this.http.get<Transactions[]>('https://mysaverserver2.azurewebsites.net/transactions'))
 		return this.http.get<Transactions[]>('https://mysaverserver2.azurewebsites.net/transactions');
 	}
 }
 
-@Injectable({ providedIn: 'root' }) 
+@Injectable({ providedIn: 'root' })
 export class RecurringTransactionService {
 	constructor(private http: HttpClient) { }
 	getAllRecurringTransactions(): Observable<RecurringTransactions[]> {
@@ -27,7 +25,7 @@ export class RecurringTransactionService {
 	}
 }
 
-@Injectable({ providedIn: 'root' }) 
+@Injectable({ providedIn: 'root' })
 export class AccountService {
 	constructor(private http: HttpClient) { }
 	getAllAccounts(): Observable<Accounts[]> {
@@ -35,10 +33,17 @@ export class AccountService {
 	}
 }
 
-@Injectable({ providedIn: 'root' }) 
+@Injectable({ providedIn: 'root' })
 export class BudgetService {
 	constructor(private http: HttpClient) { }
 	getAllBudgets(): Observable<Budgets[]> {
 		return this.http.get<Budgets[]>('https://mysaverserver2.azurewebsites.net/budgets');
+	}
+}
+@Injectable({ providedIn: 'root' })
+export class CategoryService {
+	constructor(private http: HttpClient) { }
+	getAllCategories(): Observable<Category[]> {
+		return this.http.get<Category[]>('https://mysaverserver2.azurewebsites.net/categories');
 	}
 }
