@@ -44,6 +44,7 @@ import * as FusionCharts from "fusioncharts";
 import * as Charts from "fusioncharts/fusioncharts.charts";
 
 import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { BudgetMeterComponent } from './reports/report-main/budget-meter/budget-meter.component';
 
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
@@ -72,6 +73,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
     ProfileCardComponent,
     ReportMainComponent,
     AboutMainComponent,
+    BudgetMeterComponent,
 
 
   ],
