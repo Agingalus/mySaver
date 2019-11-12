@@ -4,20 +4,27 @@ import { RecurringTransactions } from '../../recurringTransaction';
 import { RecurringTransactionService } from '../../service'
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
-
-export interface Food {
-  value: string;
-  viewValue: string;
-}
+import { Category } from "../../categories";
+import { CategoryService } from "../../service";
 
 @Component({
   selector: 'app-rec-transactions',
   templateUrl: './rec-transactions.component.html',
   styleUrls: ['./rec-transactions.component.css']
 })
+
 export class RecTransactionsComponent implements OnInit {
   displayedColumns: string[] = ['StartDate','EndDate', 'AccountName',  'Category', 'Payee', 'Memo', 'Amount', 'FrequencyMonths'];
   
+  ourCategories: Category[];
+  viewValue = this.ourCategories;
+  
+  getCatagories(): void {
+    this.myCategoryService.getAllCategories().subscribe((categoryData: Category[]) => {
+      this.ourCategories = categoryData;
+    })
+  }
+
   ourTransactions: RecurringTransactions[] 
   dataSource = new MatTableDataSource<RecurringTransactions>(this.ourTransactions);
  
@@ -29,20 +36,16 @@ export class RecTransactionsComponent implements OnInit {
     })
   }
 
-  constructor(private myTransactionService: RecurringTransactionService, private router: Router) {}
+  constructor(private myCategoryService: CategoryService, private myTransactionService: RecurringTransactionService, private router: Router) {}
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     ngOnInit() {
   
       this.getTransactions();
       this.dataSource = new MatTableDataSource<RecurringTransactions>(this.ourTransactions);
       this.dataSource.paginator = this.paginator;
-    }
 
-    
-    foods: Food[] = [
-      {value: '1', viewValue: 'Car Loan'},
-      {value: '2', viewValue: 'Education'},
-      {value: '2', viewValue: 'Rent'},]
+      this.getCatagories();
+    }
 
 }
 

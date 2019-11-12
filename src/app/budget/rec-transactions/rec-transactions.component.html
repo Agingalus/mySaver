@@ -63,9 +63,9 @@
             <mat-form-field>
                 <mat-label>Category</mat-label>
                 <mat-select>
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                        {{food.viewValue}}
-                    </mat-option>
+                        <mat-option *ngFor="let Category of ourCategories" [value]="Category.name">
+                            {{Category.name}}
+                        </mat-option>
                 </mat-select>
             </mat-form-field>
     

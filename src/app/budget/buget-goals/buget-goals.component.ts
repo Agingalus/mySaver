@@ -4,11 +4,8 @@ import { Budgets} from '../../budgets';
 import { BudgetService } from '../../service'
 import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
-
-export interface Food {
-  value: string;
-  viewValue: string;
-}
+import { Category } from "../../categories";
+import { CategoryService } from "../../service";
 
 @Component({
   selector: 'app-buget-goals',
@@ -17,6 +14,15 @@ export interface Food {
 })
 export class BugetGoalsComponent implements OnInit {
   displayedColumns: string[] = ['BudgetID','GoalCategory', 'GoalAmount' ];
+
+  ourCategories: Category[];
+  viewValue = this.ourCategories;
+  
+  getCatagories(): void {
+    this.myCategoryService.getAllCategories().subscribe((categoryData: Category[]) => {
+      this.ourCategories = categoryData;
+    })
+  }
   
   ourTransactions: Budgets[] 
   dataSource = new MatTableDataSource<Budgets>(this.ourTransactions);
@@ -29,24 +35,16 @@ export class BugetGoalsComponent implements OnInit {
     })
   }
 
-  constructor(private myTransactionService: BudgetService, private router: Router) {}
+  constructor(private myCategoryService: CategoryService,private myTransactionService: BudgetService, private router: Router) {}
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     ngOnInit() {
   
       this.getTransactions();
       this.dataSource = new MatTableDataSource<Budgets>(this.ourTransactions);
       this.dataSource.paginator = this.paginator;
+
+      this.getCatagories();
     }
-  
-
-  foods: Food[] = [
-    {value: '1', viewValue: 'Education'},
-    {value: '2', viewValue: 'Living'},
-    {value: '3', viewValue: 'Groceries'},
-    {value: '4', viewValue: 'Shopping'},
-    {value: '5', viewValue: 'Fitness'},
-  
-  ];
-
+    
 
 }
