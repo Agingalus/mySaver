@@ -16,8 +16,10 @@ function compare(a, b) {
   }
   return 0;
 };
-let totalPerCat = [];
+
 function addByCat(pTransactions) {
+  let totalPerCat = [];
+  //
   console.log(`my lenght is ${pTransactions.length}`)
   for (let i = 0; i < pTransactions.length; i++) {
     if (totalPerCat[pTransactions[i].Category] == null) {
@@ -27,26 +29,32 @@ function addByCat(pTransactions) {
       totalPerCat[pTransactions[i].Category] += pTransactions[i].Amount
     }
   }
+  return totalPerCat;
 }
 let dataForTable = [];// = [{ label: "", value: 0 }];
 function makeTableData(pOurTransactions, pOurCategories) {
   // this.getTransactions();
   // this.getCatagories();
+  console.log("this is the catigories")
   console.log(pOurCategories);
+  console.log("this is my trancsactions")
   console.log(pOurTransactions);
 
-  addByCat(pOurTransactions)
+  let totalPerCat = []
+  totalPerCat = addByCat(pOurTransactions)
   // totalPerCat.pop();
   for (let i = 0; i < totalPerCat.length; i++) {
-    if (totalPerCat[i] !== null || totalPerCat[i] == 0 || pOurCategories[i].name !== null) {
-      dataForTable.push({ label: pOurCategories[i].name, value: totalPerCat[i] })
+    //! think that need to change the secont check
+    if (totalPerCat[i] != null) {
+      console.log(i)
+      dataForTable.push({ label: pOurCategories[i - 1].name, value: totalPerCat[i] })
     }
-
-
   }
+  console.log("this is the total per cat");
+  console.log(totalPerCat)
   console.log("this is the table");
   console.log(dataForTable)
-  this.dataSource = dataForTable
+  this.dataSource = data;
 }
 
 const data = {
