@@ -32,7 +32,7 @@ function addByCat(pTransactions) {
   return totalPerCat;
 }
 let dataForTable = [];// = [{ label: "", value: 0 }];
-function makeTableData(pOurTransactions, pOurCategories) {
+function makeTableData(pOurTransactions, pOurCategories,pDataSource) {
   // this.getTransactions();
   // this.getCatagories();
   console.log("this is the catigories")
@@ -54,7 +54,9 @@ function makeTableData(pOurTransactions, pOurCategories) {
   console.log(totalPerCat)
   console.log("this is the table");
   console.log(dataForTable)
-  this.dataSource = data;
+  //this.dataSource.data = dataForTable;
+  //this.dataSource = data;
+  pDataSource.data = dataForTable;
 }
 
 const data = {
@@ -74,7 +76,7 @@ const data = {
     formatNumber: "1",
     formatNumberScale: "0"
   },
-  data: dataForTable
+  data: [{ label: "", value: 0 }]//dataForTable
 };
 @Component({
   selector: 'app-home-chart',
@@ -107,7 +109,7 @@ export class HomeChartComponent implements OnInit {
     this.myCategoryService.getAllCategories().subscribe((categoryData: Category[]) => {
       this.ourCategories = categoryData;
       this.ourCategories.sort(compare);
-      makeTableData(this.ourTransactions, this.ourCategories);
+      makeTableData(this.ourTransactions, this.ourCategories, this.dataSource);
 
     })
   }
@@ -132,8 +134,8 @@ export class HomeChartComponent implements OnInit {
     // this.getTransactions();
 
     // this.getCatagories();
-    this.myAsync()
-    this.dataSource = data
+    this.myAsync();
+    // this.dataSource.data = dataForTable;
 
   }
 
