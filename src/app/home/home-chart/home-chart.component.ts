@@ -46,7 +46,7 @@ function makeTableData(pOurTransactions, pOurCategories) {
   }
   console.log("this is the table");
   console.log(dataForTable)
-  this.dataSource = data
+  this.dataSource = dataForTable
 }
 
 const data = {
