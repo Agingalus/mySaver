@@ -54,7 +54,7 @@ function makeTableData(pOurTransactions, pOurCategories) {
   console.log(totalPerCat)
   console.log("this is the table");
   console.log(dataForTable)
-  this.dataSource = data;
+  //this.dataSource = data;
 }
 
 const data = {
