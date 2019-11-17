@@ -60,6 +60,19 @@
     
         <div class="flex">
             <p>Add transaction:</p>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Start Date" value="">
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="End Date" value="">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Account Name" value="">
+            </mat-form-field>
+    
             <mat-form-field>
                 <mat-label>Category</mat-label>
                 <mat-select>
@@ -68,17 +81,25 @@
                         </mat-option>
                 </mat-select>
             </mat-form-field>
-    
+
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Account Name" value="">
+                <input matInput placeholder="Payee" value="">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Expense Name" value="">
+                <input matInput placeholder="FrequencyDays" value="">
             </mat-form-field>
-    
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Memo" value="">
+            </mat-form-field>
+
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Amount" value="">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="FrequencyMonths" value="">
             </mat-form-field>
     
             <button mat-button>Save</button>
