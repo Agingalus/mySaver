@@ -1,51 +1,70 @@
 <mat-card>
-        <h1>Budget Goals
-        </h1>
+    <h1>Budget Goals
+    </h1>
 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
- 
-                 <!-- Budget ID Column -->
-                 <ng-container matColumnDef="BudgetID">
-                     <th mat-header-cell *matHeaderCellDef> BudgetID </th>
-                     <td mat-cell *matCellDef="let element "> {{element.BudgetID}} </td>
-                 </ng-container>
-         
-                 <!-- GoalCategory Column -->
-                 <ng-container matColumnDef="GoalCategory">
-                     <th mat-header-cell *matHeaderCellDef> GoalCategory </th>
-                     <td mat-cell *matCellDef="let element"> {{element.GoalCategory}} </td>
-                 </ng-container>
-         
-                 <!-- Goal Amount Column -->
-                 <ng-container matColumnDef="GoalAmount">
-                     <th mat-header-cell *matHeaderCellDef> GoalAmount</th>
-                     <td mat-cell *matCellDef="let element"> ${{element.GoalAmount}} </td>
-                 </ng-container>
-         
-                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-         
-             </table>
-             <mat-paginator [pageSizeOptions]="[6]" showFirstLastButtons></mat-paginator>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    
-        <div class="flex">
-            <p>Add Budget:</p>
-            <mat-form-field>
-                <mat-label>Category</mat-label>
-                <mat-select>
-                        <mat-option *ngFor="let Category of ourCategories" [value]="Category.name">
-                            {{Category.name}}
-                        </mat-option>
-                </mat-select>
-            </mat-form-field>
-    
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Amount" value="">
-            </mat-form-field>
-    
-    
-            <button mat-button>Save</button>
-        </div>
-    
+        <!-- Budget ID Column -->
+        <ng-container matColumnDef="BudgetID">
+            <th mat-header-cell *matHeaderCellDef> BudgetID </th>
+            <td mat-cell *matCellDef="let element "> {{element.BudgetID}} </td>
+        </ng-container>
+        <!-- GoalName Column -->
+        <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> GoalName </th>
+            <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+        </ng-container>
+
+        <!-- GoalCategory Column -->
+        <ng-container matColumnDef="GoalCategory">
+            <th mat-header-cell *matHeaderCellDef> GoalCategory </th>
+            <td mat-cell *matCellDef="let element"> {{element.GoalCategory}} </td>
+        </ng-container>
+
+        <!-- Goal Amount Column -->
+        <ng-container matColumnDef="GoalAmount">
+            <th mat-header-cell *matHeaderCellDef> GoalAmount</th>
+            <td mat-cell *matCellDef="let element"> ${{element.GoalAmount}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Description">
+            <th mat-header-cell *matHeaderCellDef> Description</th>
+            <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[6]" showFirstLastButtons></mat-paginator>
+
+
+
+    <div class="flex" *ngIf="newBudget">
+        <p>Add Budget:</p>
+        <mat-form-field>
+            <!-- <input matInput [formControl]="amount"> -->
+            <mat-label>Category</mat-label>
+            <mat-select (selectionChange)="changeBudgetCategory($event.value)">
+                <mat-option *ngFor="let Category of ourCategories" [value]="Category.name">
+                    {{Category.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Amount" [formControl]="amount">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" value="" [formControl]="name">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Description" value="" [formControl]="description">
+        </mat-form-field>
+
+
+
+        <button mat-button (click)="addNewBudget()">Save</button>
+    </div>
+
+
 </mat-card>

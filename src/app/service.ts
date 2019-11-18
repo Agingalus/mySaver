@@ -39,6 +39,9 @@ export class BudgetService {
 	getAllBudgets(): Observable<Budgets[]> {
 		return this.http.get<Budgets[]>('https://mysaverserver2.azurewebsites.net/budgets');
 	}
+	addBudget(newBudget: Budgets): Observable<Budgets> {
+		return this.http.post<Budgets>('https://mysaverserver2.azurewebsites.net/budgets', newBudget);
+	}
 }
 @Injectable({ providedIn: 'root' })
 export class CategoryService {

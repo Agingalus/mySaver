@@ -1,7 +1,8 @@
 export class Budgets {
     _id: String;
-    BudgetID: Number;
+    BudgetID: number;
+    Name: String;
     GoalCategory: Number;
     GoalAmount: Number;
-    Description: Number;
+    Description: String;
 }
