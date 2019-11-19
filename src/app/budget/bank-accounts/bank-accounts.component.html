@@ -33,49 +33,42 @@
             <mat-paginator [pageSizeOptions]="[6]" showFirstLastButtons></mat-paginator>
 
     
-        <div class="flex">
+        <div class="flex" *ngIf="newAccount">
             <p>Add Account:</p>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="bank" value="">
+                <input matInput placeholder="Bank" value="" [formControl]="bank">
             </mat-form-field>
             
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="bankaccount" value="">
-            </mat-form-field>
-
-            <mat-form-field>
-                <mat-label>Account Type</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let food of foods" [value]="food.value">
-                        {{food.viewValue}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-    
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="accountid" value="">
-            </mat-form-field>
-    
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="avaliablebalance" value="">
+                <input matInput placeholder="Bank Account" value="" [formControl]="bankaccount">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="balance" value="">
+                <input matInput placeholder="Account Type" value="" [formControl]="accounttype">
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Account Id" value="" [formControl]="accountid">
+            </mat-form-field>
+    
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Avaliable Balance" value="" [formControl]="availablebalance">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Balance" value="" [formControl] = "balance">
             </mat-form-field>
             
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="currency" value="">
+                <input matInput placeholder="Currency" value="" [formControl] = "currency">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="frinedlyname" value="">
+                <input matInput placeholder="Friendly Name" value="" [formControl]= "friendlyname">
             </mat-form-field>
     
-    
-    
-            <button mat-button>Save</button>
+            <button mat-button (click)="addNewAccount()">Save</button>
         </div>
     
 
