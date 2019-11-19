@@ -5,10 +5,10 @@
         <div class="flex">
             <p>Add Transaction:</p>
             <mat-form-field>
-                <mat-label>Category</mat-label>
+                <mat-label>Transaction</mat-label>
                 <mat-select>
-                        <mat-option *ngFor="let Category of ourCategories" [value]="Category.name">
-                            {{Category.name}}
+                        <mat-option *ngFor="let Transaction of ourTransactions" [value]="Transaction.name">
+                            {{Transaction.name}}
                         </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -28,6 +28,10 @@
       
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Memo" value="">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Date" value="">
             </mat-form-field>
 
             <button mat-button>Save</button>

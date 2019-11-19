@@ -30,20 +30,36 @@ export class TransactionPageAddComponent implements OnInit {
   }
   */
 
- ourTransactions: Transactions[];
- viewValue = this.ourTransactions;
- getTransactions(): void {
-   this.myTransactionService.getAllTransactions().subscribe((transactionData: Transactions[]) => {
-     this.ourTransactions = transactionData;
-   })
- }
- 
- constructor(private myTransactionService: TransactionService, private router: Router) { }
- 
+  newTransaction: Transactions = new Transactions();
+
+  constructor(private myTransactionService: TransactionService, private router: Router) {}
+
+  addRecord(): void {
+    //this.newTask._id = (new Date().valueOf()).toString();  // fairly safe random number
+    // if unlucky and get a duplicate, Mongo will just reject, user can try again
+    this.myTransactionService.insertTransaction(this.newTransaction).subscribe();
+  }
+/*
+  ourTransactions: Transactions[];
+  viewValue = this.ourTransactions;
+  getTransactions(): void {
+    this.myTransactionService.getAllTransactions().subscribe((transactionData: Transactions[]) => {
+      this.ourTransactions = transactionData;
+    })
+  }
+  
+  constructor(private myTransactionService: TransactionService, private router: Router) { }
+  
+  ngOnInit() {
+
+  this.getTransactions();
+    
+  }
+  */
+
  ngOnInit() {
 
- this.getTransactions();
-   
- }
-
+  this.addRecord();
+    
+  }
 }

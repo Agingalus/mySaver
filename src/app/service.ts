@@ -14,8 +14,14 @@ export class TransactionService {
 	constructor(private http: HttpClient) { }
 	getAllTransactions(): Observable<Transactions[]> {
 		return this.http.get<Transactions[]>('https://mysaverserver2.azurewebsites.net/transactions');
-	}
+	};
+	insertTransaction(transaction: Transactions): Observable<Transactions> {
+		//return this.http.post<Task>('http://localhost:3000/tasks/', task);
+		return this.http.post<Transactions>('https://mysaverserver2.azurewebsites.net/transactions/', transaction);
+	};
 }
+
+
 
 @Injectable({ providedIn: 'root' })
 export class RecurringTransactionService {
