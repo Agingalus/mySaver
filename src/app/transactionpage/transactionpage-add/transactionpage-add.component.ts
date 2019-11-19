@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Category } from "../../categories";
-import { CategoryService } from "../../service";
+//import { Category } from "../../categories";
+//import { CategoryService } from "../../service";
+import { Transactions } from "../../transaction";
+import { TransactionService } from "../../service";
 
 @Component({
   selector: 'app-transactionpage-add',
@@ -10,7 +12,7 @@ import { CategoryService } from "../../service";
 })
 
 export class TransactionPageAddComponent implements OnInit {
-  
+  /*
   ourCategories: Category[];
   viewValue = this.ourCategories;
   getCatagories(): void {
@@ -26,5 +28,22 @@ export class TransactionPageAddComponent implements OnInit {
   this.getCatagories();
     
   }
+  */
+
+ ourTransactions: Transactions[];
+ viewValue = this.ourTransactions;
+ getTransactions(): void {
+   this.myTransactionService.getAllTransactions().subscribe((transactionData: Transactions[]) => {
+     this.ourTransactions = transactionData;
+   })
+ }
+ 
+ constructor(private myTransactionService: TransactionService, private router: Router) { }
+ 
+ ngOnInit() {
+
+ this.getTransactions();
+   
+ }
 
 }
