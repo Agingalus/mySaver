@@ -23,7 +23,6 @@ export class RecurringTransactionService {
 	getAllRecurringTransactions(): Observable<RecurringTransactions[]> {
 		return this.http.get<RecurringTransactions[]>('https://mysaverserver2.azurewebsites.net/recurringTransactions');
 	}
-	addRecurringTransaction(newRec): 
 }
 
 @Injectable({ providedIn: 'root' })
