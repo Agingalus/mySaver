@@ -23,6 +23,7 @@ export class RecurringTransactionService {
 	getAllRecurringTransactions(): Observable<RecurringTransactions[]> {
 		return this.http.get<RecurringTransactions[]>('https://mysaverserver2.azurewebsites.net/recurringTransactions');
 	}
+	addRecurringTransaction(newRec): 
 }
 
 @Injectable({ providedIn: 'root' })
@@ -30,6 +31,9 @@ export class AccountService {
 	constructor(private http: HttpClient) { }
 	getAllAccounts(): Observable<Accounts[]> {
 		return this.http.get<Accounts[]>('https://mysaverserver2.azurewebsites.net/accounts');
+	}
+	addAccount(newAccount: Accounts): Observable<Accounts> {
+		return this.http.post<Accounts>('https://mysaverserver2.azurewebsites.net/accounts', newAccount);
 	}
 }
 

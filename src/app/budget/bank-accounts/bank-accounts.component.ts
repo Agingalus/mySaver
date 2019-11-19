@@ -31,27 +31,31 @@ export class BankAccountsComponent implements OnInit {
   bank = new FormControl();
   bankaccountnumber = new FormControl();
   accounttype = new FormControl();
-  accountid = new FormControl();
   availablebalance = new FormControl();
   balance = new FormControl();
   currency = new FormControl();
   friendlyname = new FormControl();
-
-  getLastAccountId() {
-
-  }
-
+  accountid = new FormControl();
 
   addNewAccount(){
 
+    console.log("button clicked")
+    this.newAccount.accountid = this.accountid.value
     this.newAccount.friendlyname = this.friendlyname.value
     this.newAccount.currency = this.currency.value
     this.newAccount.balance = this.balance.value
     this.newAccount.availablebalance = this.availablebalance.value
-    this.newAccount.accountid = this.accountid.value
     this.newAccount.accounttype = this.accounttype.value
     this.newAccount.bankaccountnumber = this.bankaccountnumber.value
     this.newAccount.bank= this.bank.value
+    this.myAccountService.addAccount(this.newAccount).subscribe();
+    this.friendlyname.setValue("")
+    this.currency.setValue("")
+    this.balance.setValue("")
+    this.availablebalance.setValue("")
+    this.accounttype.setValue("")
+    this.bankaccountnumber.setValue("")
+    this.bank.setValue("")
 
   }
 

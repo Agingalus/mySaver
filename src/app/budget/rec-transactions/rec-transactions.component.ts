@@ -25,23 +25,23 @@ export class RecTransactionsComponent implements OnInit {
     })
   }
 
-  ourTransactions: RecurringTransactions[] 
-  dataSource = new MatTableDataSource<RecurringTransactions>(this.ourTransactions);
+  ourRecTransactions: RecurringTransactions[] 
+  dataSource = new MatTableDataSource<RecurringTransactions>(this.ourRecTransactions);
  
-  getTransactions(): void {
-    this.myTransactionService.getAllRecurringTransactions().subscribe((transactionData: RecurringTransactions[]) => {
-      this.ourTransactions = transactionData;
-      this.dataSource = new MatTableDataSource<RecurringTransactions>(this.ourTransactions);
+  getRecTransactions(): void {
+    this.myRecTransactionService.getAllRecurringTransactions().subscribe((recTransactionData: RecurringTransactions[]) => {
+      this.ourRecTransactions = recTransactionData;
+      this.dataSource = new MatTableDataSource<RecurringTransactions>(this.ourRecTransactions);
       this.dataSource.paginator = this.paginator;
     })
   }
 
-  constructor(private myCategoryService: CategoryService, private myTransactionService: RecurringTransactionService, private router: Router) {}
+  constructor(private myCategoryService: CategoryService, private myRecTransactionService: RecurringTransactionService, private router: Router) {}
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     ngOnInit() {
   
-      this.getTransactions();
-      this.dataSource = new MatTableDataSource<RecurringTransactions>(this.ourTransactions);
+      this.getRecTransactions();
+      this.dataSource = new MatTableDataSource<RecurringTransactions>(this.ourRecTransactions);
       this.dataSource.paginator = this.paginator;
 
       this.getCatagories();
