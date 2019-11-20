@@ -58,7 +58,7 @@
              <mat-paginator [pageSizeOptions]="[6]" showFirstLastButtons></mat-paginator>
 
     
-        <div class="flex">
+        <div class="flex" >
             <p>Add transaction:</p>
 
             <mat-form-field class="example-full-width">
@@ -102,7 +102,7 @@
                 <input matInput placeholder="FrequencyMonths" value="">
             </mat-form-field>
     
-            <button mat-button>Save</button>
+            <button mat-button (click)="addNewRecTrans()">Save</button>
         </div>
     
 </mat-card>

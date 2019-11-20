@@ -48,6 +48,7 @@ export class BankAccountsComponent implements OnInit {
     this.newAccount.accounttype = this.accounttype.value
     this.newAccount.bankaccountnumber = this.bankaccountnumber.value
     this.newAccount.bank= this.bank.value
+    
     this.myAccountService.addAccount(this.newAccount).subscribe();
     this.friendlyname.setValue("")
     this.currency.setValue("")

@@ -23,6 +23,9 @@ export class RecurringTransactionService {
 	getAllRecurringTransactions(): Observable<RecurringTransactions[]> {
 		return this.http.get<RecurringTransactions[]>('https://mysaverserver2.azurewebsites.net/recurringTransactions');
 	}
+	addRecTrans(newRecTrans: RecurringTransactions): Observable<RecurringTransactions> {
+		return this.http.post<RecurringTransactions>('https://mysaverserver2.azurewebsites.net/recurringTransactions', newRecTrans);
+	}
 }
 
 @Injectable({ providedIn: 'root' })

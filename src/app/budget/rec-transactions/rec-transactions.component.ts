@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import { Category } from "../../categories";
 import { CategoryService } from "../../service";
+import { FormControl } from '@angular/forms';
+import { Budgets } from 'src/app/budgets';
 
 @Component({
   selector: 'app-rec-transactions',
@@ -25,6 +27,7 @@ export class RecTransactionsComponent implements OnInit {
     })
   }
 
+  newRecTrans: RecurringTransactions = new RecurringTransactions();
   ourRecTransactions: RecurringTransactions[] 
   dataSource = new MatTableDataSource<RecurringTransactions>(this.ourRecTransactions);
  
@@ -35,6 +38,53 @@ export class RecTransactionsComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
     })
   }
+
+  startdate = new FormControl();
+  enddate = new FormControl();
+  payee = new FormControl();
+  frequencydays = new FormControl();
+  memo = new FormControl();
+  amount = new FormControl();
+  frequencymonths = new FormControl();
+
+  findCatNubFromName(theName) {
+    let number;
+
+    this.ourCategories.forEach(element => {
+      if (element.name == theName) {
+        number = element.categoryid;
+        return;
+      }
+    });
+    return number;
+  }
+
+  changeBudgetCategory(value) {
+    this.newRecTrans.Category = this.findCatNubFromName(value);
+  }
+
+  addNewRecTrans() {
+    console.log("clicked button")
+
+    this.newRecTrans.StartDate = this.startdate.value
+    this.newRecTrans.EndDate = this.enddate.value
+    this.newRecTrans.Payee = this.payee.value
+    this.newRecTrans.FrequencyMonths = this.frequencymonths.value
+    this.newRecTrans.FrequencyDays = this.frequencydays.value
+    this.newRecTrans.Memo = this.memo.value
+    this.newRecTrans.Amount = this.amount.value
+
+    this.myRecTransactionService.addRecTrans(this.newRecTrans).subscribe()
+    this.startdate.setValue("");
+    this.enddate.setValue("");
+    this.payee.setValue("");
+    this.frequencydays.setValue("");
+    this.frequencymonths.setValue("");
+    this.memo.setValue("");
+    this.amount.setValue("");
+
+  }
+
 
   constructor(private myCategoryService: CategoryService, private myRecTransactionService: RecurringTransactionService, private router: Router) {}
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

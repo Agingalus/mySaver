@@ -7,4 +7,6 @@ export class RecurringTransactions {
 	Payee: String;
     Amount: Number;
     FrequencyMonths: Number;
+    FrequencyDays: Number;
+    Memo: String;
 }
