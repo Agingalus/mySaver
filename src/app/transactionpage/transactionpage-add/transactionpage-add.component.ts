@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from "../../categories";
 import { CategoryService } from "../../service";
+import { Transactions } from "../../transaction";
+import { TransactionService } from "../../service";
 
 
 @Component({
@@ -20,7 +22,7 @@ export class TransactionPageAddComponent implements OnInit {
     })
   }
   
-  constructor(private myCategoryService: CategoryService, private router: Router) { }
+  constructor(private myCategoryService: CategoryService, private router: Router, private myTransactionService: TransactionService) { }
   
   ngOnInit() {
 
@@ -48,5 +50,21 @@ export class TransactionPageAddComponent implements OnInit {
   }
   */
 
+ newTransaction: Transactions = new Transactions();
+
+// constructor(private myTransactionService: TransactionService, private router: Router) {}
+
+ addRecord(): void {
+   //this.newTask._id = (new Date().valueOf()).toString();  // fairly safe random number
+   // if unlucky and get a duplicate, Mongo will just reject, user can try again
+   this.myTransactionService.insertTransaction(this.newTransaction).subscribe();
+ }
+
+ saveClick() {
+  console.log("The save button was clicked");
+  //Don't add a record until the user presses the button
+  this.addRecord();
+
+  }
 
 }

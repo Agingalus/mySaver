@@ -19,11 +19,11 @@
                 </mat-form-field>
     
             <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Account Type" value="">
+                    <input matInput placeholder="Account number" type="number" value="">
             </mat-form-field>
    
             <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Amount" value="">
+                    <input matInput placeholder="Amount" type="number" value="">
             </mat-form-field>
       
             <mat-form-field class="example-full-width">
@@ -31,12 +31,11 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Date" value="">
+                <input matInput placeholder="Date" type="date" value="">
             </mat-form-field>
 
-            <button mat-button>Save</button>
+            <button mat-button (click)="saveClick()">Save</button>
         </div>
     
-
     </mat-card>
     
