@@ -1,6 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FusionChartsModule } from "angular-fusioncharts";
 import { ReportMainComponent } from './report-main.component';
+import { MatCardModule } from '@angular/material/card';
+
+// Import FusionCharts library and chart modules
+import * as FusionCharts from 'fusioncharts';
+import * as Charts from 'fusioncharts/fusioncharts.charts';
+import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
+
+// Pass the fusioncharts library and chart modules
+FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
+
 
 describe('ReportMainComponent', () => {
   let component: ReportMainComponent;
@@ -8,7 +18,12 @@ describe('ReportMainComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReportMainComponent ]
+      declarations: [ 
+          ReportMainComponent ],
+      imports : [
+          MatCardModule,
+          FusionChartsModule
+      ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { NgModule } from '@angular/core';
 import { ReportsComponent } from './reports.component';
+import { ReportMainComponent } from './report-main/report-main.component';
+import { MatCardModule } from '@angular/material/card';
+import { FusionChartsModule } from "angular-fusioncharts";
 
 describe('ReportsComponent', () => {
   let component: ReportsComponent;
@@ -8,7 +11,15 @@ describe('ReportsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReportsComponent ]
+      declarations: [ 
+        ReportsComponent,
+        ReportMainComponent
+      ],
+    imports : [
+        MatCardModule,
+        FusionChartsModule
+    ],
+      providers: [NgModule ],
     })
     .compileComponents();
   }));
