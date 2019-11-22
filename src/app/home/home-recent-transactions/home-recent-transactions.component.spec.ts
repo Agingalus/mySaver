@@ -10,10 +10,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { DataSource } from '@angular/cdk/table';
-import { MatTableModule } from '@angular/material'
+
 import { CdkTableModule } from '@angular/cdk/table';
 import { Injectable } from '@angular/core'
 import { MatPaginator } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material'
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterTestingModule } from '@angular/router/testing';
 
