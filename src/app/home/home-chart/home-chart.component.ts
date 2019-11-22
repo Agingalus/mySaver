@@ -19,8 +19,7 @@ function compare(a, b) {
 
 function addByCat(pTransactions) {
   let totalPerCat = [];
-  //
-  //console.log(`my length is ${pTransactions.length}`)
+
   for (let i = 0; i < pTransactions.length; i++) {
     if (totalPerCat[pTransactions[i].Category] == null) {
       totalPerCat[pTransactions[i].Category] = pTransactions[i].Amount;
@@ -31,31 +30,18 @@ function addByCat(pTransactions) {
   }
   return totalPerCat;
 }
-let dataForTable = [];// = [{ label: "", value: 0 }];
+let dataForTable = [];
 function makeTableData(pOurTransactions, pOurCategories, pDataSource) {
-  // this.getTransactions();
-  // this.getCatagories();
-  //console.log("this is the catigories")
-  //console.log(pOurCategories);
-  //console.log("this is my trancsactions")
-  //console.log(pOurTransactions);
 
   let totalPerCat = []
   totalPerCat = addByCat(pOurTransactions)
-  // totalPerCat.pop();
   for (let i = 0; i < totalPerCat.length; i++) {
 
     if (totalPerCat[i] != null) {
-      //console.log(i)
       dataForTable.push({ label: pOurCategories[i - 1].name, value: totalPerCat[i] })
     }
   }
-  //console.log("this is the total per cat");
-  //console.log(totalPerCat)
-  //console.log("this is the table");
-  //console.log(dataForTable)
-  //this.dataSource.data = dataForTable;
-  //this.dataSource = data;
+
   pDataSource.data = dataForTable;
 }
 
@@ -131,12 +117,7 @@ export class HomeChartComponent implements OnInit {
   constructor(private myTransactionService: TransactionService, private myCategoryService: CategoryService, private router: Router) { }
 
   ngOnInit() {
-    // this.getTransactions();
-
-    // this.getCatagories();
     this.myAsync();
-    // this.dataSource.data = dataForTable;
-
   }
 
 }
