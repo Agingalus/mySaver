@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatCardModule } from '@angular/material/card';
 import { PremiumPlanComponent } from './premium-plan.component';
 
 describe('PremiumPlanComponent', () => {
@@ -8,6 +8,9 @@ describe('PremiumPlanComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatCardModule
+      ],
       declarations: [ PremiumPlanComponent ]
     })
     .compileComponents();
