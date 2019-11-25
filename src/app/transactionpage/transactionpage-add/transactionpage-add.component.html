@@ -7,7 +7,7 @@
             <mat-form-field>
                 <mat-label>Categories</mat-label>
                 <mat-select>
-                        <mat-option *ngFor="let Categories of ourCategories" [value]="Categories.name">
+                        <mat-option *ngFor="let Categories of ourCategories" formControl="transactionCategory" [value]="Categories.name" >
                             {{Categories.name}}
                         </mat-option>
                 </mat-select>
@@ -15,23 +15,23 @@
     
     
             <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Payee" value="">
+                    <input matInput placeholder="Payee" [formControl]= "transactionPayee" value="">
                 </mat-form-field>
     
             <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Account number" type="number" value="">
+                    <input matInput placeholder="Account number" type="number" [formControl]="AccountID" value="">
             </mat-form-field>
    
             <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Amount" type="number" value="">
+                    <input matInput placeholder="Amount" type="number" [formControl]="transactionAmount" value="">
             </mat-form-field>
       
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Memo" value="">
+                <input matInput placeholder="Memo" [formControl]= "transactionMemo" value="">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Date" type="date" value="">
+                <input matInput placeholder="Date" type="date" [formControl]= "transactionDate" value="">
             </mat-form-field>
 
             <button mat-button (click)="saveClick()">Save</button>
