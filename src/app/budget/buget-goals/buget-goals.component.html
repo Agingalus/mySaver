@@ -24,11 +24,11 @@
         <!-- Goal Amount Column -->
         <ng-container matColumnDef="GoalAmount">
             <th mat-header-cell *matHeaderCellDef> GoalAmount</th>
-            <td mat-cell *matCellDef="let element"> ${{element.GoalAmount}} </td>
+            <td mat-cell *matCellDef="let element"> ${{element.GoalAmount}} </td><button mat-button>Edit</button>
         </ng-container>
         <ng-container matColumnDef="Description">
             <th mat-header-cell *matHeaderCellDef> Description</th>
-            <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.Description}} <button mat-button (click) = "editBudget()">Edit</button></td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

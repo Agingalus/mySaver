@@ -8,8 +8,6 @@ import { Category } from "../../categories";
 import { CategoryService } from "../../service";
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-
-
 @Component({
   selector: 'app-buget-goals',
   templateUrl: './buget-goals.component.html',
@@ -17,10 +15,9 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class BugetGoalsComponent implements OnInit {
 
-
-
   displayedColumns: string[] = ['BudgetID', 'Name', 'GoalCategory', 'GoalAmount', 'Description'];
   newBudget: Budgets = new Budgets();
+  updateBudget: Budgets = new Budgets();
   ourCategories: Category[];
   viewValue = this.ourCategories;
 
@@ -44,13 +41,7 @@ export class BugetGoalsComponent implements OnInit {
   description = new FormControl();
   name = new FormControl();
 
-  // onAmountChange() {
-  //   console.log(this.amount.value);
-  //   console.log(this.category.value);
-
-
-
-  // }  
+ 
   findCatNubFromName(theName) {
     let number;
 
@@ -81,9 +72,6 @@ export class BugetGoalsComponent implements OnInit {
   addNewBudget() {
 
     console.log("btn clicked")
-    //console.log(this.findCatNubFromName("food"));
-    // console.log(this.amount.value)
-    // console.log(this.name.value);
 
     if (!isNaN(Number(this.amount.value))) {
       console.log("yes")
@@ -103,6 +91,28 @@ export class BugetGoalsComponent implements OnInit {
     this.amount.setValue("");
     this.description.setValue("");
 
+  }
+
+  editBudget() {
+    console.log("edit button clicked")
+
+    if (!isNaN(Number(this.amount.value))) {
+      console.log("yes")
+      this.newBudget.GoalAmount = Number(this.amount.value);
+    }
+    else {
+      console.log("no")
+    }
+
+    this.newBudget.BudgetID = this.getLastBudgetID();
+    this.newBudget.Name = this.name.value
+    this.newBudget.Description = this.description.value
+    console.log("edit budget");
+    console.log(this.updateBudget);
+    this.myBudgetService.updateBudget(this.updateBudget).subscribe();
+    this.name.setValue("");
+    this.amount.setValue("");
+    this.description.setValue("");
   }
 
   constructor(private myCategoryService: CategoryService, private myBudgetService: BudgetService, private router: Router) { }

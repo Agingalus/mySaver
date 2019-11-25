@@ -42,4 +42,8 @@ describe('BugetGoalsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('test edit budget', () => {
+      //add code here
+  })
 });
