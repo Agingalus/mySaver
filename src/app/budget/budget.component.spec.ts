@@ -52,3 +52,29 @@ describe('BudgetComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+describe('Can delete Budget', function(){ 
+  let component: BudgetComponent;
+  let fixture: ComponentFixture<BudgetComponent>; 
+    beforeEach(function(done){
+        component.selectedTask._id = component.saved_id;
+        component.selectedTask.taskName = "TestCreate";
+        console.log("task about to delete " + component.selectedTask._id )
+        component.deleteTask();
+        setTimeout(() => {done();}, 2000); 
+        });
+
+describe('deleted budget should be gone', function(){  
+    beforeEach(function(done){
+        component.foundTask._id = component.saved_id;
+        console.log('just before call to find ' + component.foundTask._id );
+        component.findTask();
+        setTimeout(() => {done();}, 2000); 
+    });
+
+    it('should not find deleted record', function(){
+        expect( component.foundTask).toBe(null);
+    });
+});  
+
+}); 
