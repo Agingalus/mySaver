@@ -39,11 +39,23 @@ describe('BugetGoalsComponent', () => {
     fixture.detectChanges();
   });
 
+  describe('Can edit budget', function(){
+      beforeEach(function(done) {
+        fixture = TestBed.createComponent(BugetGoalsComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+
+        component.updateBudget._id = component.updateBudget._id
+        component.updateBudget.Name = "TestEdit";
+        component.editBudget();
+        console.log('edited budget with id '+ component.updateBudget._id)
+        setTimeout(() => {done();}, 2000);
+
+      })
+  });
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('test edit budget', () => {
-      //add code here
-  })
 });
