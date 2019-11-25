@@ -40,7 +40,7 @@ function addByCat(pTransactions) {
 
 export class HomeRecentTransactionsComponent implements OnInit {
 
-  //myData = new data();
+  //myData = new data();s
   //fakeDatas = this.myData.info;
   displayedColumns: string[] = ['AccountID', 'Payee', 'Category', 'Amount'];
   //dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
@@ -69,6 +69,7 @@ export class HomeRecentTransactionsComponent implements OnInit {
   }
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   ngOnInit() {
+    //this.dataSource = new MatTableDataSource<Transactions>();
 
     this.getTransactions();
     this.dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
