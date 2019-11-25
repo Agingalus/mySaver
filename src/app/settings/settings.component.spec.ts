@@ -10,9 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
-// describe('SettingsComponent', () => {
-//   let component: SettingsComponent;
-//   let fixture: ComponentFixture<SettingsComponent>;
+describe('SettingsComponent', () => {
+  let component: SettingsComponent;
+  let fixture: ComponentFixture<SettingsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -32,11 +32,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     .compileComponents();
   }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(SettingsComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SettingsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

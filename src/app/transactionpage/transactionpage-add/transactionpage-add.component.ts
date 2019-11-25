@@ -13,8 +13,6 @@ import { FormControl } from '@angular/forms'
   styleUrls: ['./transactionpage-add.component.css']
 })
 
-
-
 export class TransactionPageAddComponent implements OnInit {
   newTransaction: Transactions = new Transactions();
   ourCategories: Category[];
@@ -25,17 +23,42 @@ export class TransactionPageAddComponent implements OnInit {
       this.ourCategories = categoryData;
     })
   }
-
+  
   constructor(private myCategoryService: CategoryService, private router: Router, private myTransactionService: TransactionService) { }
+  
+  ngOnInit() {
 
+  this.getCategories();
+    
+  }
+  
+
+
+/*
+  ourTransactions: Transactions[];
+  viewValue = this.ourTransactions;
+  getTransactions(): void {
+    this.myTransactionService.getAllTransactions().subscribe((transactionData: Transactions[]) => {
+      this.ourTransactions = transactionData;
+    })
+  }
+  
+  constructor(private myTransactionService: TransactionService, private router: Router) { }
+  
   ngOnInit() {
 
   this.getTransactions();
     
   }
+*/
 
+// constructor(private myTransactionService: TransactionService, private router: Router) {}
 
-
+ addRecord(): void {
+   //this.newTask._id = (new Date().valueOf()).toString();  // fairly safe random number
+   // if unlucky and get a duplicate, Mongo will just reject, user can try again
+   this.myTransactionService.insertTransaction(this.newTransaction).subscribe();
+ }
 
 
  AccountID = new FormControl();

@@ -4,9 +4,9 @@ import { ProfileCardComponent } from './profile-card.component';
 import { MatCardModule } from '@angular/material'
 
 
-// describe('ProfileCardComponent', () => {
-//   let component: ProfileCardComponent;
-//   let fixture: ComponentFixture<ProfileCardComponent>;
+describe('ProfileCardComponent', () => {
+  let component: ProfileCardComponent;
+  let fixture: ComponentFixture<ProfileCardComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -18,13 +18,13 @@ import { MatCardModule } from '@angular/material'
     .compileComponents();
   }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(ProfileCardComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ProfileCardComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

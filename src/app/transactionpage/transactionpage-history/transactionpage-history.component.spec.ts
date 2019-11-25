@@ -6,9 +6,9 @@ import { MatCardModule } from '@angular/material';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterModule } from '@angular/router' ;
 
-// describe('TransactionPageHistoryComponent', () => {
-//   let component: TransactionPageHistoryComponent;
-//   let fixture: ComponentFixture<TransactionPageHistoryComponent>;
+describe('TransactionPageHistoryComponent', () => {
+  let component: TransactionPageHistoryComponent;
+  let fixture: ComponentFixture<TransactionPageHistoryComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -28,13 +28,13 @@ import { RouterModule } from '@angular/router' ;
     .compileComponents();
   }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(TransactionPageHistoryComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TransactionPageHistoryComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

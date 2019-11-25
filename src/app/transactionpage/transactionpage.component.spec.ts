@@ -13,16 +13,20 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterModule } from '@angular/router';
 //import { MatFormFieldControl } from '@angular/material';
 import { MatInputModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
-// describe('TransactionPageComponent', () => {
-//   let component: TransactionPageComponent;
-//   let fixture: ComponentFixture<TransactionPageComponent>;
+
+describe('TransactionPageComponent', () => {
+  let component: TransactionPageComponent;
+  let fixture: ComponentFixture<TransactionPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        FormsModule,
+        ReactiveFormsModule,
         MatFormFieldModule,
         MatSelectModule,
         MatCardModule,
@@ -44,13 +48,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     .compileComponents();
   }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(TransactionPageComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TransactionPageComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -26,9 +26,9 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
 
 
 
-// describe('HomeChartComponent', () => {
-//   let component: HomeChartComponent;
-//   let fixture: ComponentFixture<HomeChartComponent>;
+describe('HomeChartComponent', () => {
+  let component: HomeChartComponent;
+  let fixture: ComponentFixture<HomeChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -47,13 +47,13 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
       .compileComponents();
   }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(HomeChartComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HomeChartComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

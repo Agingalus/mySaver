@@ -15,9 +15,9 @@ import { MatTableModule } from '@angular/material'
 import { MatPaginator } from '@angular/material/paginator';
 
 
-// describe('HomeComponent', () => {
-//   let component: HomeComponent;
-//   let fixture: ComponentFixture<HomeComponent>;
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -43,13 +43,13 @@ import { MatPaginator } from '@angular/material/paginator';
       .compileComponents();
   }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(HomeComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HomeComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

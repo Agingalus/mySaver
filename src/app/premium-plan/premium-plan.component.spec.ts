@@ -2,9 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
 import { PremiumPlanComponent } from './premium-plan.component';
 
-// describe('PremiumPlanComponent', () => {
-//   let component: PremiumPlanComponent;
-//   let fixture: ComponentFixture<PremiumPlanComponent>;
+describe('PremiumPlanComponent', () => {
+  let component: PremiumPlanComponent;
+  let fixture: ComponentFixture<PremiumPlanComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -16,13 +16,13 @@ import { PremiumPlanComponent } from './premium-plan.component';
     .compileComponents();
   }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(PremiumPlanComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(PremiumPlanComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

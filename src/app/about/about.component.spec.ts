@@ -8,9 +8,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// describe('AboutComponent', () => {
-//   let component: AboutComponent;
-//   let fixture: ComponentFixture<AboutComponent>;
+describe('AboutComponent', () => {
+  let component: AboutComponent;
+  let fixture: ComponentFixture<AboutComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -21,13 +21,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       .compileComponents();
   }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(AboutComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AboutComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

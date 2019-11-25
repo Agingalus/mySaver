@@ -11,9 +11,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 
 
-// describe('HomeHeaderComponent', () => {
-//   let component: HomeHeaderComponent;
-//   let fixture: ComponentFixture<HomeHeaderComponent>;
+describe('HomeHeaderComponent', () => {
+  let component: HomeHeaderComponent;
+  let fixture: ComponentFixture<HomeHeaderComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -32,13 +32,13 @@ import { FormsModule } from '@angular/forms';
       .compileComponents();
   }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(HomeHeaderComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HomeHeaderComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

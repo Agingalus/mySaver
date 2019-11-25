@@ -33,11 +33,11 @@ describe('BugetGoalsComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BugetGoalsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  // beforeEach(() => {
+  //   fixture = TestBed.createComponent(BugetGoalsComponent);
+  //   component = fixture.componentInstance;
+  //   fixture.detectChanges();
+  // });
 
   it('should create', () => {
     expect(component).toBeTruthy();

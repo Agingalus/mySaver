@@ -19,9 +19,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterTestingModule } from '@angular/router/testing';
 
 
-// describe('RecentTransactionsHomeComponent', () => {
-//   let component: HomeRecentTransactionsComponent;
-//   let fixture: ComponentFixture<HomeRecentTransactionsComponent>;
+describe('RecentTransactionsHomeComponent', () => {
+  let component: HomeRecentTransactionsComponent;
+  let fixture: ComponentFixture<HomeRecentTransactionsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -52,13 +52,13 @@ import { RouterTestingModule } from '@angular/router/testing';
       .compileComponents();
   }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(HomeRecentTransactionsComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HomeRecentTransactionsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
-// });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
