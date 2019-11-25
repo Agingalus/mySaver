@@ -7,7 +7,6 @@ import { TransactionService } from "../../service";
 import { FormControl } from '@angular/forms'
 
 
-
 @Component({
   selector: 'app-transactionpage-add',
   templateUrl: './transactionpage-add.component.html',
@@ -34,7 +33,7 @@ export class TransactionPageAddComponent implements OnInit {
   this.getTransactions();
     
   }
-*/
+
 
 
 
