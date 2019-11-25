@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { Injectable } from '@angular/core'
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material'
+import { MatTableModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -34,7 +34,6 @@ describe('HomeChartComponent', () => {
     TestBed.configureTestingModule({
       imports: [MatCardModule,
         BrowserAnimationsModule,
-
         MatTableModule,
         MatPaginatorModule,
         HttpClientTestingModule,
