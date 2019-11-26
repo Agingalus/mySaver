@@ -54,6 +54,10 @@ export class BudgetService {
 	addBudget(newBudget: Budgets): Observable<Budgets> {
 		return this.http.post<Budgets>('https://mysaverserver2.azurewebsites.net/budgets', newBudget);
 	}
+	updateBudget(updateBudget: Budgets): Observable<Budgets> {
+		return this.http.put<Budgets> ('https://mysaverserver2.azurewebsites.net/budgets', updateBudget);
+	}
+
 }
 @Injectable({ providedIn: 'root' })
 export class CategoryService {
