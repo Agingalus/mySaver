@@ -14,7 +14,7 @@ import { DataSource } from '@angular/cdk/table';
 import { CdkTableModule } from '@angular/cdk/table';
 import { Injectable } from '@angular/core'
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableModule } from '@angular/material'
+import { MatTableModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterTestingModule } from '@angular/router/testing';
 

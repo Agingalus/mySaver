@@ -13,6 +13,17 @@ import { FormsModule } from '@angular/forms';
 import { DataSource } from '@angular/cdk/table';
 import { MatTableModule } from '@angular/material'
 import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FusionChartsModule } from "angular-fusioncharts";
+import * as FusionCharts from "fusioncharts";
+import * as Charts from "fusioncharts/fusioncharts.charts";
+
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+FusionChartsModule.fcRoot(FusionCharts, Charts, FusionTheme);
+
+
 
 
 describe('HomeComponent', () => {
@@ -22,16 +33,16 @@ describe('HomeComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
         BrowserAnimationsModule,
-        //MatTableDataSource,
-        FormsModule,
-        DataSource,
+        MatPaginatorModule,
         MatTableModule,
-        MatPaginator
-
+        HttpClientTestingModule,
+        RouterTestingModule,
+        FusionChartsModule
       ],
       declarations: [
         HomeComponent,

@@ -12,6 +12,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BudgetService } from '../service'
+import { NgModule } from '@angular/core';
+import { Budgets } from '../budgets';
 
 describe('BudgetComponent', () => {
   let component: BudgetComponent;
@@ -19,27 +22,29 @@ describe('BudgetComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
-          BudgetComponent,
-          BankAccountsComponent,
-          RecTransactionsComponent,
-          BugetGoalsComponent
-         ],
+      declarations: [
+        BudgetComponent,
+        BankAccountsComponent,
+        RecTransactionsComponent,
+        BugetGoalsComponent
+      ],
       imports: [
-          MatCardModule,
-          MatTableModule,
-          MatPaginatorModule,
-          MatInputModule,
-          FormsModule,
-          ReactiveFormsModule,
-          MatSelectModule,
-          RouterTestingModule,
-          HttpClientTestingModule,
-          BrowserAnimationsModule
-      
-      ]
+        MatCardModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSelectModule,
+        RouterTestingModule,
+        HttpClientTestingModule,
+        BrowserAnimationsModule,
+
+
+      ],
+      providers: [NgModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -51,30 +56,69 @@ describe('BudgetComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  describe('Can Add Record', function () {
+    beforeEach(function (done) {
+      // since I am nesting beforeEach statements, next 3 lines only show in first
+      let newBudget: Budgets = { "_id": "5ddcac37b948963410ebbc53", "BudgetID": 2, "Name": "popcorn", "GoalCategory": 45, "GoalAmount": 10000, "Description": "Earn popcorn" }
+
+
+      // fixture = TestBed.createComponent(BudgetComponent);
+      // component = fixture.componentInstance;
+      // fixture.detectChanges();
+      //let myBudgetService: BudgetService;
+      // myBudgetService.addBudget(newBudget).subscribe();
+      // component.newTask.taskName = "TestCreate";
+      component.addNewBudgetForTest();
+
+
+      // component.saved_id = component.newTask._id;
+      console.log("im alive");
+      // console.log('just added record with this _id ' + component.saved_id)
+      setTimeout(() => { done(); }, 2000); // worked at 500, failed at 50
+    });
+    describe('Can find added Record', function () {
+      beforeEach(function (done) {
+        fixture = TestBed.createComponent(BudgetComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+
+        //component.foundTask._id = "5db7a6c01c9d44000040f2c3";
+        //console.log('just before call to find ' + "5db7a6c01c9d44000040f2c3");
+        //component.findTask();
+        setTimeout(() => { done(); }, 2000);
+      });
+
+      it('should find new new record', function () {
+        //console.log('just before did it find new ' + component.foundTask.taskName);
+        expect(component).toBeTruthy();
+      });
+    });
+  });
 });
+
 /*
-describe('Can delete Budget', function(){ 
+describe('Can delete Budget', function(){
   let component: BudgetComponent;
-  let fixture: ComponentFixture<BudgetComponent>; 
+  let fixture: ComponentFixture<BudgetComponent>;
     beforeEach(function(done){
         component.selectedTask._id = component.saved_id;
         component.selectedTask.taskName = "TestCreate";
         console.log("task about to delete " + component.selectedTask._id )
         component.deleteTask();
-        setTimeout(() => {done();}, 2000); 
+        setTimeout(() => {done();}, 2000);
         });
 
-describe('deleted budget should be gone', function(){  
+describe('deleted budget should be gone', function(){
     beforeEach(function(done){
         component.foundTask._id = component.saved_id;
         console.log('just before call to find ' + component.foundTask._id );
         component.findTask();
-        setTimeout(() => {done();}, 2000); 
+        setTimeout(() => {done();}, 2000);
     });
 
     it('should not find deleted record', function(){
         expect( component.foundTask).toBe(null);
     });
-});  
+});
 
-});*/ 
+});*/

@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
 //import { MatFormFieldControl } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -33,19 +33,19 @@ describe('TransactionPageComponent', () => {
         MatTableModule,
         MatPaginatorModule,
         HttpClientTestingModule,
-        RouterModule.forRoot([{ path: "", component: TransactionPageComponent}]),
+        RouterModule.forRoot([{ path: "", component: TransactionPageComponent }]),
         MatInputModule,
         BrowserAnimationsModule
       ],
-      declarations: [ 
+      declarations: [
         TransactionPageComponent,
         TransactionPageAddComponent,
         TransactionPageHistoryComponent,
         transactionPageButtonsComponent
-       ],
+      ],
       providers: [NgModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -57,4 +57,5 @@ describe('TransactionPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

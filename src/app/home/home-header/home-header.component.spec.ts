@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material'
 
 
 describe('HomeHeaderComponent', () => {
@@ -20,9 +21,8 @@ describe('HomeHeaderComponent', () => {
       imports: [MatCardModule,
         MatFormFieldModule,
         MatInputModule,
-        MatTableDataSource,
         FormsModule,
-
+        MatTableModule,
         BrowserAnimationsModule
 
       ],
