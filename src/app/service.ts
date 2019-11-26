@@ -57,6 +57,14 @@ export class BudgetService {
 	updateBudget(updateBudget: Budgets): Observable<Budgets> {
 		return this.http.put<Budgets> ('https://mysaverserver2.azurewebsites.net/budgets', updateBudget);
 	}
+	getBudget(budgetIDToFind: string): Observable<Budgets> {
+		//return this.http.get<Task>('http://localhost:3000/tasks/' + taskName);
+		return this.http.get<Budgets>('https://mysaverserver2.azurewebsites.net/budgets' + budgetIDToFind);
+	}
+	deleteBudget(budgetToDelete: Budgets) {
+		//return this.http.delete('http://localhost:3000/tasks/' + task._id);
+		return this.http.delete('https://mysaverserver2.azurewebsites.net/budgets' + budgetToDelete._id);
+	}
 
 }
 @Injectable({ providedIn: 'root' })
