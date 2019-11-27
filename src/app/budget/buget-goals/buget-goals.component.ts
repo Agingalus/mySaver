@@ -7,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Category } from "../../categories";
 import { CategoryService } from "../../service";
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import 'hammerjs';
 
 @Component({
   selector: 'app-buget-goals',
@@ -41,7 +42,7 @@ export class BugetGoalsComponent implements OnInit {
   description = new FormControl();
   name = new FormControl();
 
- 
+
   findCatNubFromName(theName) {
     let number;
 
@@ -69,6 +70,13 @@ export class BugetGoalsComponent implements OnInit {
     return ++lastID;
 
   }
+  makeCall(newRecord) {
+    console.log("+++++++++++++++++++++++++++++++++++++++++");
+    console.log("+++++++++++++++++++++++++++++++++++++++++");
+    console.log(newRecord);
+    console.log("hi from the call")
+    this.myBudgetService.addBudget(newRecord).subscribe();
+  }
   addNewBudget() {
 
     console.log("btn clicked")
@@ -86,12 +94,13 @@ export class BugetGoalsComponent implements OnInit {
     this.newBudget.Description = this.description.value
     console.log("this is the new buget");
     console.log(this.newBudget);
-    this.myBudgetService.addBudget(this.newBudget).subscribe();
+    this.makeCall(this.newBudget);
     this.name.setValue("");
     this.amount.setValue("");
     this.description.setValue("");
 
   }
+
 
   editBudget() {
     console.log("edit button clicked")
