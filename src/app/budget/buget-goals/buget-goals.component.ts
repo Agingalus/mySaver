@@ -81,7 +81,6 @@ export class BugetGoalsComponent implements OnInit {
       console.log("no")
     }
 
-    this.newBudget.BudgetID = this.getLastBudgetID();
     this.newBudget.Name = this.name.value
     this.newBudget.Description = this.description.value
     console.log("this is the new buget");
@@ -104,7 +103,6 @@ export class BugetGoalsComponent implements OnInit {
       console.log("no")
     }
 
-    this.newBudget.BudgetID = this.getLastBudgetID();
     this.newBudget.Name = this.name.value
     this.newBudget.Description = this.description.value
     console.log("edit budget");

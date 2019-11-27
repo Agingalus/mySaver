@@ -9,6 +9,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BugetGoalsComponent } from './buget-goals.component';
 import { MatCard, MatCardModule } from '@angular/material/card';
+import { Budgets } from 'src/app/budgets';
 
 describe('BugetGoalsComponent', () => {
   let component: BugetGoalsComponent;
@@ -33,11 +34,11 @@ describe('BugetGoalsComponent', () => {
     .compileComponents();
   }));
 
-  // beforeEach(() => {
-  //   fixture = TestBed.createComponent(BugetGoalsComponent);
-  //   component = fixture.componentInstance;
-  //   fixture.detectChanges();
-  // });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(BugetGoalsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
   describe('Can edit budget', function(){
       beforeEach(function(done) {
@@ -47,8 +48,9 @@ describe('BugetGoalsComponent', () => {
 
         component.updateBudget._id = component.updateBudget._id
         component.updateBudget.Name = "TestEdit";
+           
         component.editBudget();
-        console.log('edited budget with id '+ component.updateBudget._id)
+        console.log('edited budget')
         setTimeout(() => {done();}, 2000);
 
       })
