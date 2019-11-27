@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule, NgModel } from "@angular/forms";
 import { MatSelectModule } from '@angular/material/select';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -10,6 +10,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BugetGoalsComponent } from './buget-goals.component';
 import { MatCard, MatCardModule } from '@angular/material/card';
 import { Budgets } from 'src/app/budgets';
+import { HttpClient } from 'selenium-webdriver/http';
+import { NgModule, Injectable } from '@angular/core';
+import { HttpHandler, HttpClientModule } from '@angular/common/http';
+//import { AppRoutingModule } from 'src/app/app-routing.module';
+import { BudgetService } from '../../service'
 
 
 
@@ -29,7 +34,8 @@ describe('BugetGoalsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BugetGoalsComponent],
+      declarations: [BugetGoalsComponent, //ReportsComponent, TransactionPageHistoryComponent, SettingsComponent, TransactionPageAddComponent, AboutComponent
+      ],
       imports: [
         MatTableModule,
         MatPaginatorModule,
@@ -40,8 +46,11 @@ describe('BugetGoalsComponent', () => {
         BrowserAnimationsModule,
         ReactiveFormsModule,
         FormsModule,
-        MatCardModule
-      ]
+        MatCardModule,
+        HttpClientModule,
+        //AppRoutingModule
+      ],
+      providers: [NgModule, Injectable, BudgetService]
     })
       .compileComponents();
   }));
@@ -76,7 +85,14 @@ describe('BugetGoalsComponent', () => {
       component = fixture.componentInstance;
       fixture.detectChanges();
       // since I am nesting beforeEach statements, next 3 lines only show in first
-      let newBudget: Budgets = { "_id": "5ddcac37b948963410ebbc53", "BudgetID": 2, "Name": "popcorn", "GoalCategory": 45, "GoalAmount": 10000, "Description": "Earn popcorn" }
+      let newBudget: Budgets = new Budgets();
+      newBudget._id = "5ddcac37b948963410ebbc53";
+      newBudget.BudgetID = 2;
+      newBudget.Name = "popcorn";
+      newBudget.GoalCategory = 1;
+      newBudget.GoalAmount = 10000;
+      newBudget.Description = "earn popcorn";
+      // newBudget = { "_id": "5ddcac37b948963410ebbc53", "BudgetID": 2, "Name": "popcorn", "GoalCategory": 45, "GoalAmount": 10000, "Description": "Earn popcorn" }
 
       // console.log(newBudget);
       component.makeCall(newBudget);
