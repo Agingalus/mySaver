@@ -22,6 +22,7 @@ describe('BugetGoalsComponent', () => {
   let component: BugetGoalsComponent;
   let fixture: ComponentFixture<BugetGoalsComponent>;
 
+
   // function addNewBudget(newBudget, myFunction) {
 
   //   console.log("btn clicked")
@@ -85,15 +86,21 @@ describe('BugetGoalsComponent', () => {
       component = fixture.componentInstance;
       fixture.detectChanges();
       // since I am nesting beforeEach statements, next 3 lines only show in first
-      let newBudget: Budgets = new Budgets();
-      newBudget._id = "5ddcac37b948963410ebbc53";
+      let newBudget = new Budgets;
+      //newBudget.BudgetID = 999999 //temporary
+      console.log("Here is the newBudget object:", newBudget);
+      newBudget.BudgetID = component.getLastBudgetID();
+      //console.log("The new budget ID is", newBudget.BudgetID);
+      //newBudget: Budgets = new Budgets();
+      //newBudget._id = "5ddcac37b948963410ebbc53";
       newBudget.BudgetID = 2;
-      newBudget.Name = "popcorn";
+      newBudget.Name = "cheetos";
       newBudget.GoalCategory = 1;
       newBudget.GoalAmount = 10000;
-      newBudget.Description = "earn popcorn";
-      // newBudget = { "_id": "5ddcac37b948963410ebbc53", "BudgetID": 2, "Name": "popcorn", "GoalCategory": 45, "GoalAmount": 10000, "Description": "Earn popcorn" }
+      newBudget.Description = "earn cheetos";
+      //newBudget = { "BudgetID": 2, "Name": "popcorn", "GoalCategory": 45, "GoalAmount": 10000, "Description": "Earn popcorn" }
 
+      console.log("Here is the newBudget object:", newBudget);
       // console.log(newBudget);
       component.makeCall(newBudget);
 
@@ -102,7 +109,7 @@ describe('BugetGoalsComponent', () => {
 
       setTimeout(() => { done(); }, 2000);
     });
-    it('should find new new record', function () {
+    fit('should find new new record', function () {
 
       expect(component).toBeTruthy();
     });

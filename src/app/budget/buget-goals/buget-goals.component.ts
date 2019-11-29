@@ -66,6 +66,7 @@ export class BugetGoalsComponent implements OnInit {
           lastID = element.BudgetID;
         }
       });
+      console.log("The last budget ID is", lastID);
     }
     return ++lastID;
 
