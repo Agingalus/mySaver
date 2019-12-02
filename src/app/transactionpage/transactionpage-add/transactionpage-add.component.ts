@@ -72,7 +72,7 @@ export class TransactionPageAddComponent implements OnInit {
     // }
 
     this.newTrans.Date = this.transactionDate.value;
-    this.newTrans.Date = new Date();
+    //this.newTrans.Date = new Date();
     this.newTrans.AccountID = Number(this.accountID.value);
     this.newTrans.Payee = this.payee.value;
     this.newTrans.Memo = this.memo.value;

@@ -5,11 +5,11 @@
         <p>Add transaction:</p>
 
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Date" value="" [formControl]="transactionDate">
+            <input matInput placeholder="Date" value="" type="date" [formControl]="transactionDate">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="AccountID" value="" [formControl]="accountID">
+            <input matInput placeholder="AccountID" value="" type="number" [formControl]="accountID">
         </mat-form-field>
         <!--
         <mat-form-field class="example-full-width">
@@ -34,7 +34,7 @@
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-            <input matInput placeholder="Amount" value="" [formControl]="amount">
+            <input matInput placeholder="Amount" value="" type="number" [formControl]="amount">
         </mat-form-field>
 
         <button mat-button (click)="addNewTrans()">Save</button>
