@@ -15,10 +15,10 @@ import { TransactionService } from "../../service";
 })
 
 export class TransactionPageAddComponent implements OnInit {
-  
+
   ourCategories: Category[];
   viewValue = this.ourCategories;
-  
+
   getCatagories(): void {
     this.myCategoryService.getAllCategories().subscribe((categoryData: Category[]) => {
       this.ourCategories = categoryData;
@@ -26,9 +26,9 @@ export class TransactionPageAddComponent implements OnInit {
   }
 
   newTrans: Transactions = new Transactions();
-  ourRecTransactions: Transactions[] 
+  ourRecTransactions: Transactions[]
   dataSource = new MatTableDataSource<Transactions>(this.ourRecTransactions);
- 
+
   getRecTransactions(): void {
     this.myTransactionService.getAllTransactions().subscribe((transactionData: Transactions[]) => {
       this.ourRecTransactions = transactionData;
@@ -42,7 +42,7 @@ export class TransactionPageAddComponent implements OnInit {
   payee = new FormControl();
   memo = new FormControl();
   amount = new FormControl();
-  Date = new FormControl();
+  //Date = new FormControl();
 
   findCatNubFromName(theName) {
     let number;
@@ -62,12 +62,21 @@ export class TransactionPageAddComponent implements OnInit {
 
   addNewTrans() {
     console.log("clicked button")
+    // if (!isNaN(Number(this.amount.value))) {
+    //   console.log("yes")
+    //   this.newBudget.GoalAmount = Number(this.amount.value);
+    // }
+    // else {
+    //   console.log("no")
+    // }
 
     this.newTrans.Date = this.transactionDate.value;
-    this.newTrans.AccountID = this.accountID.value;
+    this.newTrans.Date = new Date();
+    this.newTrans.AccountID = Number(this.accountID.value);
     this.newTrans.Payee = this.payee.value;
     this.newTrans.Memo = this.memo.value;
-    this.newTrans.Amount = this.amount.value;
+    this.newTrans.Amount = Number(this.amount.value);
+    console.log(this.newTrans)
 
     this.myTransactionService.insertTransaction(this.newTrans).subscribe();
     this.transactionDate.setValue("");
@@ -79,16 +88,16 @@ export class TransactionPageAddComponent implements OnInit {
   }
 
 
-  constructor(private myCategoryService: CategoryService, private myTransactionService: TransactionService, private router: Router) {}
-    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-    ngOnInit() {
-  
-      this.getRecTransactions();
-      this.dataSource = new MatTableDataSource<Transactions>(this.ourRecTransactions);
-      this.dataSource.paginator = this.paginator;
+  constructor(private myCategoryService: CategoryService, private myTransactionService: TransactionService, private router: Router) { }
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  ngOnInit() {
 
-      this.getCatagories();
-    }
+    this.getRecTransactions();
+    this.dataSource = new MatTableDataSource<Transactions>(this.ourRecTransactions);
+    this.dataSource.paginator = this.paginator;
+
+    this.getCatagories();
+  }
 
 }
 
@@ -120,15 +129,15 @@ export class TransactionPageAddComponent implements OnInit {
 //       this.ourCategories = categoryData;
 //     })
 //   }
-  
+
 //   constructor(private myCategoryService: CategoryService, private router: Router, private myTransactionService: TransactionService) { }
-  
+
 //   ngOnInit() {
 
 //   this.getCategories();
-    
+
 //   }
-  
+
 
 
 // /*
@@ -139,13 +148,13 @@ export class TransactionPageAddComponent implements OnInit {
 //       this.ourTransactions = transactionData;
 //     })
 //   }
-  
+
 //   constructor(private myTransactionService: TransactionService, private router: Router) { }
-  
+
 //   ngOnInit() {
 
 //   this.getTransactions();
-    
+
 //   }
 // */
 
@@ -179,7 +188,7 @@ export class TransactionPageAddComponent implements OnInit {
 //   this.newTransaction.Memo = this.transactionMemo.value
 //   this.newTransaction.Amount = this.transactionAmount.value
 //   // don't set the value for _id
-  
+
 //   this.myTransactionService.insertTransaction(this.newTransaction).subscribe();
 //   this.AccountID.setValue("")
 //   this.transactionDate.setValue("")
