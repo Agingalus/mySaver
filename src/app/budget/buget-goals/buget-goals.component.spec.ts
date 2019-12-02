@@ -18,7 +18,7 @@ import { BudgetService } from '../../service'
 ///////////
 import { HttpModule } from '@angular/http';
 import { Observable, of } from 'rxjs'
-import 'rxjs/add/observable/of';
+import 'rxjs/add/of';
 import { HttpRequest, HttpResponse, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
@@ -117,7 +117,7 @@ describe('BugetGoalsComponent', () => {
 
 
         mockService = {
-          addSession: jasmine.createSpy('addSession').and.returnValue.of('your session object mock goes here')
+          addSession: jasmine.createSpy('addSession').and.returnValue(of('your session object mock goes here'))
         };
 
         beforeEach(() => {
