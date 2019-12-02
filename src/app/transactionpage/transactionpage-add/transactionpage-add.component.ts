@@ -36,16 +36,6 @@ export class TransactionPageAddComponent implements OnInit {
   }
 
   newTrans: Transactions = new Transactions();
-  ourRecTransactions: Transactions[]
-  dataSource = new MatTableDataSource<Transactions>(this.ourRecTransactions);
-
-  getRecTransactions(): void {
-    this.myTransactionService.getAllTransactions().subscribe((transactionData: Transactions[]) => {
-      this.ourRecTransactions = transactionData;
-      this.dataSource = new MatTableDataSource<Transactions>(this.ourRecTransactions);
-      this.dataSource.paginator = this.paginator;
-    })
-  }
 
   transactionDate = new FormControl();
   //AccountID = new FormControl();
@@ -118,10 +108,6 @@ export class TransactionPageAddComponent implements OnInit {
   constructor(private myCategoryService: CategoryService, private myAccountService: AccountService, private myTransactionService: TransactionService, private router: Router) { }
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   ngOnInit() {
-
-    this.getRecTransactions();
-    this.dataSource = new MatTableDataSource<Transactions>(this.ourRecTransactions);
-    this.dataSource.paginator = this.paginator;
 
     this.getCatagories();
     this.getAccounts();
