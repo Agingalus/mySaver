@@ -5,6 +5,7 @@ import { CategoryService } from "../../service";
 import { Transactions } from "../../transaction";
 import { TransactionService } from "../../service";
 import { FormControl } from '@angular/forms'
+import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
 
 
 @Component({
@@ -92,6 +93,34 @@ export class TransactionPageAddComponent implements OnInit {
   this.transactionAmount.setValue("")
 
   }
+/*
+addNewBudget() {
+
+    console.log("btn clicked")
+
+    if (!isNaN(Number(this.amount.value))) {
+      console.log("yes")
+      this.newBudget.GoalAmount = Number(this.amount.value);
+    }
+    else {
+      console.log("no")
+    }
+
+    this.newBudget.Name = this.name.value
+    this.newBudget.Description = this.description.value
+    console.log("this is the new buget");
+    console.log(this.newBudget);
+    this.myBudgetService.addBudget(this.newBudget).subscribe();
+    this.name.setValue("");
+    this.amount.setValue("");
+    this.description.setValue("");
+
+  }
+*/
+
+
+
+
 
 /*
 export class Transactions {

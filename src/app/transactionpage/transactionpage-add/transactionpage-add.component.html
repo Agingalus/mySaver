@@ -4,14 +4,22 @@
     
         <div class="flex">
             <p>Add Transaction:</p>
-            <mat-form-field>
+            <!--<mat-form-field>
                 <mat-label>Categories</mat-label>
                 <mat-select>
                         <mat-option *ngFor="let Categories of ourCategories" formControl="transactionCategory" [value]="Categories.name" >
-                            {{Categories.name}}
+                            {{Categories.name}} Categoryid:{{Categories.Categoryid}}
                         </mat-option>
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field>-->
+
+            <mat-form-field>
+                <input type="text" matInput [formControl]="transactionCategory" [matAutocomplete]="auto">
+              </mat-form-field>
+              
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let Categories of ourCategories" [value]="option">{{option}}</mat-option>
+              </mat-autocomplete>
     
     
             <mat-form-field class="example-full-width">
