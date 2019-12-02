@@ -56,6 +56,7 @@ export class TransactionPageAddComponent implements OnInit {
     return number;
   }
 
+
   changeBudgetCategory(value) {
     this.newTrans.Category = this.findCatNubFromName(value);
   }
