@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { MatPaginator } from '@angular/material/paginator';
 import { Category } from "../../categories";
 import { CategoryService } from "../../service";
 import { FormControl } from '@angular/forms';
@@ -26,22 +24,12 @@ export class TransactionPageAddComponent implements OnInit {
   }
 
   newTrans: Transactions = new Transactions();
-  ourRecTransactions: Transactions[] 
-  dataSource = new MatTableDataSource<Transactions>(this.ourRecTransactions);
- 
-  getRecTransactions(): void {
-    this.myTransactionService.getAllTransactions().subscribe((transactionData: Transactions[]) => {
-      this.ourRecTransactions = transactionData;
-      this.dataSource = new MatTableDataSource<Transactions>(this.ourRecTransactions);
-      this.dataSource.paginator = this.paginator;
-    })
-  }
 
   transactionDate = new FormControl();
-  accountID = new FormControl();
-  payee = new FormControl();
-  memo = new FormControl();
-  amount = new FormControl();
+  AccountID = new FormControl();
+  Payee = new FormControl();
+  Memo = new FormControl();
+  Amount = new FormControl();
   Date = new FormControl();
 
   findCatNubFromName(theName) {
@@ -63,30 +51,28 @@ export class TransactionPageAddComponent implements OnInit {
   addNewTrans() {
     console.log("clicked button")
 
-    this.newTrans.Date = this.transactionDate.value;
-    this.newTrans.AccountID = this.accountID.value;
-    this.newTrans.Payee = this.payee.value;
-    this.newTrans.Memo = this.memo.value;
-    this.newTrans.Amount = this.amount.value;
 
+    
+    this.newTrans.Date = this.transactionDate.value;
+    this.newTrans.AccountID = this.AccountID.value;
+    this.newTrans.Payee = this.Payee.value;
+    this.newTrans.Memo = this.Memo.value;
+    this.newTrans.Amount = this.Amount.value;
+ 
+    console.log("this.newTrans is", this.newTrans);
     this.myTransactionService.insertTransaction(this.newTrans).subscribe();
     this.transactionDate.setValue("");
-    this.accountID.setValue("");
-    this.payee.setValue("");
-    this.memo.setValue("");
-    this.amount.setValue("");
+    this.AccountID.setValue("");
+    this.Payee.setValue("");
+    this.Memo.setValue("");
+    this.Amount.setValue("");
+    console.log("this.newTrans is", this.newTrans);
 
   }
 
 
   constructor(private myCategoryService: CategoryService, private myTransactionService: TransactionService, private router: Router) {}
-    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     ngOnInit() {
-  
-      this.getRecTransactions();
-      this.dataSource = new MatTableDataSource<Transactions>(this.ourRecTransactions);
-      this.dataSource.paginator = this.paginator;
-
       this.getCatagories();
     }
 
