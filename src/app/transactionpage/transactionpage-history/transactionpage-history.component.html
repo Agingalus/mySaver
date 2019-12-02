@@ -14,6 +14,12 @@
                     <th mat-header-cell *matHeaderCellDef> AccountID </th>
                     <td mat-cell *matCellDef="let element "> {{element.AccountID}} </td>
                 </ng-container>
+
+                <!-- AccountName Column -->
+                <ng-container matColumnDef="AccountName">
+                    <th mat-header-cell *matHeaderCellDef> AccountName </th>
+                    <td mat-cell *matCellDef="let element"> {{element.AccountName}} </td>
+                </ng-container>
         
                 <!-- Category Column -->
                 <ng-container matColumnDef="Category">

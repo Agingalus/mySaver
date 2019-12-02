@@ -1,25 +1,61 @@
+<mat-card>
+    <h1>Add Transaction</h1>
 
+    <div class="flex" >
+        <p>Add transaction:</p>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Date" value="">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="AccountID" value="">
+        </mat-form-field>
+<!--
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Account Name" value="">
+        </mat-form-field>-->
+
+        <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select>
+                    <mat-option *ngFor="let Category of ourCategories" [value]="Category.name">
+                        {{Category.name}}
+                    </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Payee" value="">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Memo" value="">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Amount" value="">
+        </mat-form-field>
+
+        <button mat-button (click)="addNewTrans()">Save</button>
+    </div>
+
+</mat-card>
+
+<!--
 <mat-card>
         <h1>Add new transaction</h1>
     
         <div class="flex">
             <p>Add Transaction:</p>
-            <!--<mat-form-field>
+            <mat-form-field>
                 <mat-label>Categories</mat-label>
                 <mat-select>
                         <mat-option *ngFor="let Categories of ourCategories" formControl="transactionCategory" [value]="Categories.name" >
                             {{Categories.name}} Categoryid:{{Categories.Categoryid}}
                         </mat-option>
                 </mat-select>
-            </mat-form-field>-->
-
-            <mat-form-field>
-                <input type="text" matInput [formControl]="transactionCategory" [matAutocomplete]="auto">
-              </mat-form-field>
-              
-              <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let Categories of ourCategories" [value]="option">{{option}}</mat-option>
-              </mat-autocomplete>
+            </mat-form-field>
     
     
             <mat-form-field class="example-full-width">
@@ -46,4 +82,4 @@
         </div>
     
     </mat-card>
-    
+-->
