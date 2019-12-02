@@ -8,17 +8,25 @@
             <input matInput placeholder="Date" value="" type="date" [formControl]="transactionDate">
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <!--<mat-form-field class="example-full-width">
             <input matInput placeholder="AccountID" value="" type="number" [formControl]="accountID">
-        </mat-form-field>
+        </mat-form-field>-->
         <!--
         <mat-form-field class="example-full-width">
             <input matInput placeholder="Account Name" value="">
         </mat-form-field>-->
+        <mat-form-field>
+            <mat-label>Account</mat-label>
+            <mat-select (selectionChange)="changeAccount($event.value)">
+                <mat-option *ngFor="let Account of ourAccounts" [value]="Account.friendlyname">
+                    {{Account.friendlyname}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
         <mat-form-field>
             <mat-label>Category</mat-label>
-            <mat-select (selectionChange)="changeBudgetCategory($event.value)">
+            <mat-select (selectionChange)="changeCategory($event.value)">
                 <mat-option *ngFor="let Category of ourCategories" [value]="Category.name">
                     {{Category.name}}
                 </mat-option>

@@ -7,5 +7,5 @@ export class Accounts {
     availablebalance: Number
     balance: Number
     currency: String
-    friendlyname: Number
+    friendlyname: String
 }

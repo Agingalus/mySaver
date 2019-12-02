@@ -7,6 +7,8 @@ import { CategoryService } from "../../service";
 import { FormControl } from '@angular/forms';
 import { Transactions } from "../../transaction";
 import { TransactionService } from "../../service";
+import { Accounts } from 'src/app/accounts';
+import { AccountService } from "../../service";
 
 @Component({
   selector: 'app-transactionpage-add',
@@ -18,10 +20,18 @@ export class TransactionPageAddComponent implements OnInit {
 
   ourCategories: Category[];
   viewValue = this.ourCategories;
+  ourAccounts: Accounts[];
+  viewAcctValue = this.ourAccounts;
 
   getCatagories(): void {
     this.myCategoryService.getAllCategories().subscribe((categoryData: Category[]) => {
       this.ourCategories = categoryData;
+    })
+  }
+
+  getAccounts(): void {
+    this.myAccountService.getAllAccounts().subscribe((accountData: Accounts[]) => {
+      this.ourAccounts = accountData;
     })
   }
 
@@ -38,7 +48,7 @@ export class TransactionPageAddComponent implements OnInit {
   }
 
   transactionDate = new FormControl();
-  accountID = new FormControl();
+  //AccountID = new FormControl();
   payee = new FormControl();
   memo = new FormControl();
   amount = new FormControl();
@@ -56,10 +66,26 @@ export class TransactionPageAddComponent implements OnInit {
     return number;
   }
 
+  findAcctNubFromName(accName) {
+    let accNumber;
 
-  changeBudgetCategory(value) {
+    this.ourAccounts.forEach(element => {
+      if (element.friendlyname == accName) {
+        accNumber = element.accountid;
+        return;
+      }
+    });
+    return accNumber;
+  }
+
+  changeCategory(value) {
     this.newTrans.Category = this.findCatNubFromName(value);
   }
+
+  changeAccount(value) {
+    this.newTrans.AccountID = this.findAcctNubFromName(value);
+  }
+
 
   addNewTrans() {
     console.log("clicked button")
@@ -73,7 +99,7 @@ export class TransactionPageAddComponent implements OnInit {
 
     this.newTrans.Date = this.transactionDate.value;
     //this.newTrans.Date = new Date();
-    this.newTrans.AccountID = Number(this.accountID.value);
+    //this.newTrans.AccountID = Number(this.accountID.value);
     this.newTrans.Payee = this.payee.value;
     this.newTrans.Memo = this.memo.value;
     this.newTrans.Amount = Number(this.amount.value);
@@ -81,7 +107,7 @@ export class TransactionPageAddComponent implements OnInit {
 
     this.myTransactionService.insertTransaction(this.newTrans).subscribe();
     this.transactionDate.setValue("");
-    this.accountID.setValue("");
+    //this.accountID.setValue("");
     this.payee.setValue("");
     this.memo.setValue("");
     this.amount.setValue("");
@@ -89,7 +115,7 @@ export class TransactionPageAddComponent implements OnInit {
   }
 
 
-  constructor(private myCategoryService: CategoryService, private myTransactionService: TransactionService, private router: Router) { }
+  constructor(private myCategoryService: CategoryService, private myAccountService: AccountService, private myTransactionService: TransactionService, private router: Router) { }
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   ngOnInit() {
 
@@ -98,6 +124,7 @@ export class TransactionPageAddComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
 
     this.getCatagories();
+    this.getAccounts();
   }
 
 }
