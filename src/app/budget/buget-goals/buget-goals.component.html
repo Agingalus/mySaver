@@ -6,24 +6,24 @@
 
         <!-- Budget ID Column -->
         <ng-container matColumnDef="BudgetID">
-            <th mat-header-cell *matHeaderCellDef> BudgetID </th>
+            <th mat-header-cell *matHeaderCellDef> Budget ID </th>
             <td mat-cell *matCellDef="let element "> {{element.BudgetID}} </td>
         </ng-container>
         <!-- GoalName Column -->
         <ng-container matColumnDef="Name">
-            <th mat-header-cell *matHeaderCellDef> GoalName </th>
+            <th mat-header-cell *matHeaderCellDef> Goal name </th>
             <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
         </ng-container>
 
         <!-- GoalCategory Column -->
         <ng-container matColumnDef="GoalCategory">
-            <th mat-header-cell *matHeaderCellDef> GoalCategory </th>
+            <th mat-header-cell *matHeaderCellDef> Goal category </th>
             <td mat-cell *matCellDef="let element"> {{element.GoalCategory}} </td>
         </ng-container>
 
         <!-- Goal Amount Column -->
         <ng-container matColumnDef="GoalAmount">
-            <th mat-header-cell *matHeaderCellDef> GoalAmount</th>
+            <th mat-header-cell *matHeaderCellDef> Goal amount</th>
             <td mat-cell *matCellDef="let element"> ${{element.GoalAmount}} </td><button mat-button>Edit</button>
         </ng-container>
         <ng-container matColumnDef="Description">

@@ -13,7 +13,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms'
   styleUrls: ['./bank-accounts.component.css']
 })
 export class BankAccountsComponent implements OnInit {
-  displayedColumns: string[] = ['Bank','AvailableBalance', 'Balance', 'Currency' ];
+  displayedColumns: string[] = ['Friendly name', 'Bank', 'MySaver account number', 'Bank account number', 'AvailableBalance', 'Balance', 'Currency' ];
   
   newAccount: Accounts = new Accounts();
   ourAccounts: Accounts[] 
@@ -37,6 +37,20 @@ export class BankAccountsComponent implements OnInit {
   friendlyname = new FormControl();
   accountid = new FormControl();
 
+  getLastMySaverAccountID() {
+    let lastID: number = 0;
+    if (this.ourAccounts.length > 1) {
+      this.ourAccounts.forEach(element => {
+        if (element.accountid > lastID) {
+          lastID = element.accountid;
+        }
+      });
+    }
+    return ++lastID;
+
+  }
+
+
   addNewAccount(){
 
     console.log("button clicked")
@@ -48,6 +62,7 @@ export class BankAccountsComponent implements OnInit {
     this.newAccount.accounttype = this.accounttype.value
     this.newAccount.bankaccountnumber = this.bankaccountnumber.value
     this.newAccount.bank= this.bank.value
+    this.newAccount.accountid = this.getLastMySaverAccountID();
     
     this.myAccountService.addAccount(this.newAccount).subscribe();
     this.friendlyname.setValue("")

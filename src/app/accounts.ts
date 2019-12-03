@@ -1,11 +1,11 @@
 export class Accounts {
-    _id: String
-    bank: String
-    bankaccountnumber: Number
-    accounttype: Number
-    accountid: Number
-    availablebalance: Number
-    balance: Number
-    currency: String
-    friendlyname: String
+    _id: string
+    bank: string
+    bankaccountnumber: number
+    accounttype: number
+    accountid: number
+    availablebalance: number
+    balance: number
+    currency: string
+    friendlyname: string
 }

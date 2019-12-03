@@ -3,3 +3,8 @@ h1 {
     font-weight: bold;
     text-align: center;
 }
+
+h2 {
+    font: 20px;
+    text-align: center;
+}

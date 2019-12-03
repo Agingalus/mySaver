@@ -2,7 +2,24 @@
 <mat-card>
         <h1>Banking Accounts</h1>
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
- 
+                <!-- Friendly Name Column -->
+                <ng-container matColumnDef="Friendly name">
+                    <th mat-header-cell *matHeaderCellDef> Friendly name</th>
+                    <td mat-cell *matCellDef="let element "> {{element.friendlyname}} </td>
+                </ng-container>
+            
+                <!-- AccountID Column -->
+                <ng-container matColumnDef="MySaver account number">
+                    <th mat-header-cell *matHeaderCellDef> MySaver account number</th>
+                    <td mat-cell *matCellDef="let element "> {{element.accountid}} </td>
+                </ng-container>
+
+                <!-- Bank account number column -->
+                <ng-container matColumnDef="Bank account number">
+                    <th mat-header-cell *matHeaderCellDef> Bank account number</th>
+                    <td mat-cell *matCellDef="let element "> {{element.bankaccountnumber}} </td>
+                </ng-container>
+
                 <!-- Bank Column -->
                 <ng-container matColumnDef="Bank">
                     <th mat-header-cell *matHeaderCellDef> Bank</th>
@@ -12,7 +29,7 @@
                 <!-- Available Balance Column -->
                 <ng-container matColumnDef="AvailableBalance">
                     <th mat-header-cell *matHeaderCellDef> AvailableBalance </th>
-                    <td mat-cell *matCellDef="let element"> {{element.availablebalance}} </td>
+                    <td mat-cell *matCellDef="let element"> ${{element.availablebalance}} </td>
                 </ng-container>
         
                 <!-- Balance Column -->
@@ -37,35 +54,31 @@
             <p>Add Account:</p>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Bank" value="" [formControl]="bank">
-            </mat-form-field>
-            
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Bank Account" value="" [formControl]="bankaccountnumber">
+                <input matInput placeholder="Friendly name" value="" type="string" [formControl]= "friendlyname">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Account Type" value="" [formControl]="accounttype">
+                <input matInput placeholder="Bank" value="" type="string" [formControl]="bank">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Account type" value="" type="string" [formControl]="accounttype">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Bank account number or identifier" value="" type="string" [formControl]="bankaccountnumber">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Account Id" value="" [formControl]="accountid">
-            </mat-form-field>
-    
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Avaliable Balance" value="" [formControl]="availablebalance">
+                <input matInput placeholder="Avaliable balance" value="" type="number" [formControl]="availablebalance">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Balance" value="" [formControl] = "balance">
+                <input matInput placeholder="Balance" value="" type="number" [formControl] = "balance">
             </mat-form-field>
             
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Currency" value="" [formControl] = "currency">
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Friendly Name" value="" [formControl]= "friendlyname">
+                <input matInput placeholder="Currency" value="" type="string" [formControl] = "currency">
             </mat-form-field>
     
             <button mat-button (click)="addNewAccount()">Save</button>

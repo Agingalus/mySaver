@@ -58,7 +58,7 @@ export class BugetGoalsComponent implements OnInit {
   }
 
   getLastBudgetID() {
-    let lastID: number = 1;
+    let lastID: number = 0;
     if (this.ourBudgets.length > 1) {
       this.ourBudgets.forEach(element => {
         if (element.BudgetID > lastID) {
