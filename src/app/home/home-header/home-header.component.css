@@ -1,10 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Tangerine");
 h1 {
-    font: 30px;
+    font-family: 'Tangerine', serif;
+    font: 64px;
     font-weight: bold;
     text-align: center;
+    color: greenyellow;
 }
 
 h2 {
-    font: 20px;
+    font-family: 'Tangerine', serif;
+    font: 32px;
     text-align: center;
+    height: 50px;
+    color: greenyellow;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
