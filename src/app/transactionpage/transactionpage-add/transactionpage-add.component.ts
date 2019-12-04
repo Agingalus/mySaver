@@ -9,6 +9,7 @@ import { Transactions } from "../../transaction";
 import { TransactionService } from "../../service";
 import { Accounts } from 'src/app/accounts';
 import { AccountService } from "../../service";
+import { TransactionPageHistoryComponent } from "../transactionpage-history/transactionpage-history.component";
 
 @Component({
   selector: 'app-transactionpage-add',
@@ -102,6 +103,7 @@ export class TransactionPageAddComponent implements OnInit {
     this.memo.setValue("");
     this.amount.setValue("");
 
+    setTimeout(function() {window.location.reload();}, 2000);
   }
 
 
