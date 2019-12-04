@@ -72,6 +72,7 @@ export class BankAccountsComponent implements OnInit {
     this.accounttype.setValue("")
     this.bankaccountnumber.setValue("")
     this.bank.setValue("")
+    setTimeout(function() {window.location.reload();}, 2000);
 
   }
 

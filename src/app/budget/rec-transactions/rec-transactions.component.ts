@@ -89,6 +89,8 @@ export class RecTransactionsComponent implements OnInit {
     this.frequencymonths.setValue("");
     this.memo.setValue("");
     this.amount.setValue("");
+
+    setTimeout(function() {window.location.reload();}, 2000);
   }
 
 
