@@ -60,6 +60,7 @@ export class BugetGoalsComponent implements OnInit {
 
   getLastBudgetID() {
     let lastID: number = 1;
+
     if (this.ourBudgets.length > 1) {
       this.ourBudgets.forEach(element => {
         if (element.BudgetID > lastID) {
@@ -81,6 +82,7 @@ export class BugetGoalsComponent implements OnInit {
   addNewBudget() {
 
     console.log("btn clicked")
+    console.log(this.ourBudgets)
 
     if (!isNaN(Number(this.amount.value))) {
       console.log("yes")
@@ -90,7 +92,7 @@ export class BugetGoalsComponent implements OnInit {
       console.log("no")
     }
 
-    this.newBudget.BudgetID = this.getLastBudgetID();
+    this.newBudget.BudgetID = 42//this.getLastBudgetID();
     this.newBudget.Name = this.name.value
     this.newBudget.Description = this.description.value
     console.log("this is the new buget");
@@ -99,6 +101,7 @@ export class BugetGoalsComponent implements OnInit {
     this.name.setValue("");
     this.amount.setValue("");
     this.description.setValue("");
+    this.getBudget();
 
   }
 

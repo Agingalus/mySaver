@@ -16,10 +16,10 @@ import { HttpHandler, HttpClientModule } from '@angular/common/http';
 //import { AppRoutingModule } from 'src/app/app-routing.module';
 import { BudgetService } from '../../service'
 ///////////
-import { HttpModule } from '@angular/http';
-import { Observable, of } from 'rxjs'
-import 'rxjs/add/of';
-import { HttpRequest, HttpResponse, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
+//import { HttpModule } from '@angular/http';
+// import { Observable, of } from 'rxjs'
+// import 'rxjs/add/of';
+// import { HttpRequest, HttpResponse, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 describe('BugetGoalsComponent', () => {
@@ -84,85 +84,97 @@ describe('BugetGoalsComponent', () => {
   // it('should create', () => {
   //   expect(component).toBeTruthy();
   // });
-    describe('Can Add Record', function () {
-      beforeEach(function (done) {
-        fixture = TestBed.createComponent(BugetGoalsComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-        // since I am nesting beforeEach statements, next 3 lines only show in first
-        let newBudget = new Budgets;
-        newBudget.BudgetID = 999999 //temporary
-        console.log("Here is the newBudget object:", newBudget);
-        //newBudget.BudgetID = component.getLastBudgetID();
-        //console.log("The new budget ID is", newBudget.BudgetID);
-        //newBudget: Budgets = new Budgets();
-        //newBudget._id = "5ddcac37b948963410ebbc53";
-        newBudget.BudgetID = 2;
-        newBudget.Name = "cheetos";
-        newBudget.GoalCategory = 1;
-        newBudget.GoalAmount = 10000;
-        newBudget.Description = "earn cheetos";
-        //newBudget = { "BudgetID": 2, "Name": "popcorn", "GoalCategory": 45, "GoalAmount": 10000, "Description": "Earn popcorn" }
+  describe('Can Add Record', () => {
+    beforeEach(() => {
+      fixture = TestBed.createComponent(BugetGoalsComponent);
+      component = fixture.componentInstance;
+      //fixture.detectChanges();
+      // since I am nesting beforeEach statements, next 3 lines only show in first
+      let newBudget = new Budgets;
+      newBudget.BudgetID = 999999 //temporary
+      //console.log("Here is the newBudget object:", newBudget);
+      //newBudget.BudgetID = component.getLastBudgetID();
+      //console.log("The new budget ID is", newBudget.BudgetID);
+      //newBudget: Budgets = new Budgets();
+      //newBudget._id = "5ddcac37b948963410ebbc53";
+      newBudget.BudgetID = 2;
+      newBudget.Name = "cheetos";
+      newBudget.GoalCategory = 1;
+      newBudget.GoalAmount = 10000;
+      newBudget.Description = "earn cheetos";
 
-        console.log("Here is the newBudget object:", newBudget);
-        
-        //This wasn't working
-          //component.makeCall(newBudget);
+      component.name.setValue("arthor dent");
+      component.description.setValue("life the usnivese and everything");
+      component.newBudget.GoalCategory = 42;
+      component.amount.setValue("0.42")
+      //newBudget = { "BudgetID": 2, "Name": "popcorn", "GoalCategory": 45, "GoalAmount": 10000, "Description": "Earn popcorn" }
 
-        ////////////////////////
-        //New code with mock. Based on https://stackoverflow.com/questions/46420640/angular-4-unit-testing-with-jasmine-karma-with-http-post-mocking-how-to-fix
-        //describe('TrackerFormService', () => {
-        // Mock the service like this and add all the functions you have in this fashion
-        let testBudgetService: BudgetService,
+      //?console.log("Here is the newBudget object:", newBudget); 
 
+      //This wasn't working
+      //component.makeCall(newBudget);
 
-        mockService = {
-          addSession: jasmine.createSpy('addSession').and.returnValue(of('your session object mock goes here'))
-        };
-
-        beforeEach(() => {
-          TestBed.configureTestingModule({
-            imports: [HttpModule],
-            providers: [{
-              provide: BudgetService,
-              useValue: mockService
-            }]
-          });
-        });
-
-        // Do this trick to inject the service every time, and just use `service` in your tests
-        beforeEach(inject([BudgetService], (testBudgetService) => {
-          service = testBudgetService;
-        }));
-
-        describe('addSession', () => {
-          it('add session ', () => {
-            let fakeResponse = null;
-
-            // Call the service function and subscribe to it to catch the fake response coming from the mock.
-            service.addSession().subscribe((value) => {
-              // in here value will be whatever you put as returnValue (remember to keep the observable.of())
-              fakeResponse = value;
-            });
-
-            // expects as in any test.
-            expect(fakeResponse).toBeDefined();
-            expect(fakeResponse).toBe('your session object mock goes here');
-          });
-        ////////////////////////
+      ////////////////////////
+      //New code with mock. Based on https://stackoverflow.com/questions/46420640/angular-4-unit-testing-with-jasmine-karma-with-http-post-mocking-how-to-fix
+      //describe('TrackerFormService', () => {
+      // Mock the service like this and add all the functions you have in this fashion
+      //   let testBudgetService: BudgetService,
 
 
+      //   mockService = {
+      //     addSession: jasmine.createSpy('addSession').and.returnValue(of('your session object mock goes here'))
+      //   };
 
-        console.log("im alive");
+      //   beforeEach(() => {
+      //     TestBed.configureTestingModule({
+      //       imports: [HttpModule],
+      //       providers: [{
+      //         provide: BudgetService,
+      //         useValue: mockService
+      //       }]
+      //     });
+      //   });
 
-        setTimeout(() => { done(); }, 2000);
-      });
-      fit('should find new new record', function () {
+      //   // Do this trick to inject the service every time, and just use `service` in your tests
+      //   beforeEach(inject([BudgetService], (testBudgetService) => {
+      //     service = testBudgetService;
+      //   }));
 
-        expect(component).toBeTruthy();
-      });
+      //   describe('addSession', () => {
+      //     it('add session ', () => {
+      //       let fakeResponse = null;
 
+      //       // Call the service function and subscribe to it to catch the fake response coming from the mock.
+      //       service.addSession().subscribe((value) => {
+      //         // in here value will be whatever you put as returnValue (remember to keep the observable.of())
+      //         fakeResponse = value;
+      //       });
+
+      //       // expects as in any test.
+      //       expect(fakeResponse).toBeDefined();
+      //       expect(fakeResponse).toBe('your session object mock goes here');
+      //     });
+      //   ////////////////////////
+
+
+
+      //   console.log("im alive");
+
+      //   setTimeout(() => { done(); }, 2000);
     });
-  });
+    it('should add new new record', () => {
 
+
+      component.addNewBudget();
+
+      // setTimeout(() => {
+      //   console.log("all done");
+      // }, 1000);
+      expect(component).toBeTruthy();
+    });
+    it('should create', () => {
+      expect(component).toBeTruthy();
+    });
+
+  });
 });
