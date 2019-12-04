@@ -36,13 +36,13 @@
                   <!-- Memo Column -->
                   <ng-container matColumnDef="Memo">
                          <th mat-header-cell *matHeaderCellDef> Memo </th>
-                         <td mat-cell *matCellDef="let element"> {{element.Memo}} <button mat-button>Edit</button></td>
+                         <td mat-cell *matCellDef="let element"> {{element.Memo}} 
                      </ng-container>
 
                          <!-- Amount Column -->
                   <ng-container matColumnDef="Amount">
                         <th mat-header-cell *matHeaderCellDef> Amount </th>
-                        <td mat-cell *matCellDef="let element"> ${{element.Amount}} <button mat-button>Edit</button></td>
+                        <td mat-cell *matCellDef="let element"> ${{element.Amount}} 
                     </ng-container>
 
                         <!-- FrequencyMonths Column -->
@@ -63,20 +63,20 @@
             <p>Add recurring transaction:</p>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Start Date" value="">
+                <input matInput placeholder="Start Date" value="" [formControl] = "startdate">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="End Date" value="">
+                <input matInput placeholder="End Date" value=""  [formControl] = "enddate">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Account Name" value="">
+                <input matInput placeholder="Account Name" value="" type="string" [formControl] = "accountname">
             </mat-form-field>
     
             <mat-form-field>
                 <mat-label>Category</mat-label>
-                <mat-select>
+                <mat-select (selectionChange)="changeBudgetCategory($event.value)">
                         <mat-option *ngFor="let Category of ourCategories" [value]="Category.name">
                             {{Category.name}}
                         </mat-option>
@@ -84,23 +84,23 @@
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Payee" value="">
+                <input matInput placeholder="Payee" value="" type="string" [formControl] = "payee">
             </mat-form-field>
     
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="FrequencyDays" value="">
+                <input matInput placeholder="FrequencyDays" value="" type="number" [formControl] = "frequencydays">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Memo" value="">
+                <input matInput placeholder="Memo" value="" type="string" [formControl] = "memo">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="Amount" value="">
+                <input matInput placeholder="Amount" value="" type="number" [formControl] = "amount">
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
-                <input matInput placeholder="FrequencyMonths" value="">
+                <input matInput placeholder="FrequencyMonths" value="" type="number" [formControl] = "frequencymonths">
             </mat-form-field>
     
             <button mat-button (click)="addNewRecTrans()">Save</button>

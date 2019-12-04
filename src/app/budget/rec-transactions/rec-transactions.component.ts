@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ɵɵcontainerRefreshEnd } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { RecurringTransactions } from '../../recurringTransaction';
 import { RecurringTransactionService } from '../../service'
@@ -41,6 +41,7 @@ export class RecTransactionsComponent implements OnInit {
 
   startdate = new FormControl();
   enddate = new FormControl();
+  accountname = new FormControl();
   payee = new FormControl();
   frequencydays = new FormControl();
   memo = new FormControl();
@@ -64,25 +65,30 @@ export class RecTransactionsComponent implements OnInit {
   }
 
   addNewRecTrans() {
-    console.log("clicked button")
-
+    
+    this.newRecTrans.StartDate= new Date() 
     this.newRecTrans.StartDate = this.startdate.value
+    this.newRecTrans.EndDate = new Date()
     this.newRecTrans.EndDate = this.enddate.value
+    
+    this.newRecTrans.AccountName = this.accountname.value
     this.newRecTrans.Payee = this.payee.value
     this.newRecTrans.FrequencyMonths = this.frequencymonths.value
     this.newRecTrans.FrequencyDays = this.frequencydays.value
     this.newRecTrans.Memo = this.memo.value
     this.newRecTrans.Amount = this.amount.value
+  
 
-    this.myRecTransactionService.addRecTrans(this.newRecTrans).subscribe()
+    this.myRecTransactionService.addRecTrans(this.newRecTrans).subscribe();
+
     this.startdate.setValue("");
     this.enddate.setValue("");
+    this.accountname.setValue("");
     this.payee.setValue("");
     this.frequencydays.setValue("");
     this.frequencymonths.setValue("");
     this.memo.setValue("");
     this.amount.setValue("");
-
   }
 
 
