@@ -16,11 +16,11 @@ import { Budgets } from 'src/app/budgets';
 })
 
 export class RecTransactionsComponent implements OnInit {
-  displayedColumns: string[] = ['StartDate','EndDate', 'AccountName',  'Category', 'Payee', 'Memo', 'Amount', 'FrequencyMonths'];
-  
+  displayedColumns: string[] = ['StartDate', 'EndDate', 'AccountName', 'Category', 'Payee', 'Memo', 'Amount', 'FrequencyMonths'];
+
   ourCategories: Category[];
   viewValue = this.ourCategories;
-  
+
   getCatagories(): void {
     this.myCategoryService.getAllCategories().subscribe((categoryData: Category[]) => {
       this.ourCategories = categoryData;
@@ -28,9 +28,9 @@ export class RecTransactionsComponent implements OnInit {
   }
 
   newRecTrans: RecurringTransactions = new RecurringTransactions();
-  ourRecTransactions: RecurringTransactions[] 
+  ourRecTransactions: RecurringTransactions[]
   dataSource = new MatTableDataSource<RecurringTransactions>(this.ourRecTransactions);
- 
+
   getRecTransactions(): void {
     this.myRecTransactionService.getAllRecurringTransactions().subscribe((recTransactionData: RecurringTransactions[]) => {
       this.ourRecTransactions = recTransactionData;
@@ -65,19 +65,19 @@ export class RecTransactionsComponent implements OnInit {
   }
 
   addNewRecTrans() {
-    
-    this.newRecTrans.StartDate= new Date() 
+
+    this.newRecTrans.StartDate = new Date()
     this.newRecTrans.StartDate = this.startdate.value
     this.newRecTrans.EndDate = new Date()
     this.newRecTrans.EndDate = this.enddate.value
-    
+
     this.newRecTrans.AccountName = this.accountname.value
     this.newRecTrans.Payee = this.payee.value
     this.newRecTrans.FrequencyMonths = this.frequencymonths.value
     this.newRecTrans.FrequencyDays = this.frequencydays.value
     this.newRecTrans.Memo = this.memo.value
     this.newRecTrans.Amount = this.amount.value
-  
+
 
     this.myRecTransactionService.addRecTrans(this.newRecTrans).subscribe();
 
@@ -90,20 +90,20 @@ export class RecTransactionsComponent implements OnInit {
     this.memo.setValue("");
     this.amount.setValue("");
 
-    setTimeout(function() {window.location.reload();}, 2000);
+    //setTimeout(function() {window.location.reload();}, 2000);
   }
 
 
-  constructor(private myCategoryService: CategoryService, private myRecTransactionService: RecurringTransactionService, private router: Router) {}
-    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-    ngOnInit() {
-  
-      this.getRecTransactions();
-      this.dataSource = new MatTableDataSource<RecurringTransactions>(this.ourRecTransactions);
-      this.dataSource.paginator = this.paginator;
+  constructor(private myCategoryService: CategoryService, private myRecTransactionService: RecurringTransactionService, private router: Router) { }
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  ngOnInit() {
 
-      this.getCatagories();
-    }
+    this.getRecTransactions();
+    this.dataSource = new MatTableDataSource<RecurringTransactions>(this.ourRecTransactions);
+    this.dataSource.paginator = this.paginator;
+
+    this.getCatagories();
+  }
 
 }
 

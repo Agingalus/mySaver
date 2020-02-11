@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Accounts } from '../../accounts';
 import { AccountService } from '../../service'
@@ -13,12 +13,12 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms'
   styleUrls: ['./bank-accounts.component.css']
 })
 export class BankAccountsComponent implements OnInit {
-  displayedColumns: string[] = ['Friendly name', 'Bank', 'MySaver account number', 'Bank account number', 'AvailableBalance', 'Balance', 'Currency' ];
-  
+  displayedColumns: string[] = ['Friendly name', 'Bank', 'MySaver account number', 'Bank account number', 'AvailableBalance', 'Balance', 'Currency'];
+
   newAccount: Accounts = new Accounts();
-  ourAccounts: Accounts[] 
+  ourAccounts: Accounts[]
   dataSource = new MatTableDataSource<Accounts>(this.ourAccounts);
- 
+
   getAccounts(): void {
     this.myAccountService.getAllAccounts().subscribe((accountData: Accounts[]) => {
       this.ourAccounts = accountData;
@@ -51,7 +51,7 @@ export class BankAccountsComponent implements OnInit {
   }
 
 
-  addNewAccount(){
+  addNewAccount() {
 
     console.log("button clicked")
     this.newAccount.accountid = this.accountid.value
@@ -61,9 +61,9 @@ export class BankAccountsComponent implements OnInit {
     this.newAccount.availablebalance = this.availablebalance.value
     this.newAccount.accounttype = this.accounttype.value
     this.newAccount.bankaccountnumber = this.bankaccountnumber.value
-    this.newAccount.bank= this.bank.value
+    this.newAccount.bank = this.bank.value
     this.newAccount.accountid = this.getLastMySaverAccountID();
-    
+
     this.myAccountService.addAccount(this.newAccount).subscribe();
     this.friendlyname.setValue("")
     this.currency.setValue("")
@@ -72,18 +72,18 @@ export class BankAccountsComponent implements OnInit {
     this.accounttype.setValue("")
     this.bankaccountnumber.setValue("")
     this.bank.setValue("")
-    
-    setTimeout(function() {window.location.reload();}, 2000);
+
+    //setTimeout(function() {window.location.reload();}, 2000);
 
   }
 
-  constructor(private myAccountService: AccountService, private router: Router) {}
-    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-    ngOnInit() {
-  
-      this.getAccounts();
-      this.dataSource = new MatTableDataSource<Accounts>(this.ourAccounts);
-      this.dataSource.paginator = this.paginator;
-    }
+  constructor(private myAccountService: AccountService, private router: Router) { }
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  ngOnInit() {
+
+    this.getAccounts();
+    this.dataSource = new MatTableDataSource<Accounts>(this.ourAccounts);
+    this.dataSource.paginator = this.paginator;
+  }
 
 }

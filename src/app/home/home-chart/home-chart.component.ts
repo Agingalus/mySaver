@@ -30,9 +30,9 @@ function addByCat(pTransactions) {
   }
   return totalPerCat;
 }
-let dataForTable = [];
-function makeTableData(pOurTransactions, pOurCategories, pDataSource) {
 
+function makeTableData(pOurTransactions, pOurCategories, pDataSource) {
+  let dataForTable = [];
   let totalPerCat = []
   totalPerCat = addByCat(pOurTransactions)
   for (let i = 0; i < totalPerCat.length; i++) {
@@ -42,6 +42,7 @@ function makeTableData(pOurTransactions, pOurCategories, pDataSource) {
     }
   }
 
+  console.log(dataForTable);
   pDataSource.data = dataForTable;
 }
 

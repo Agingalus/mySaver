@@ -91,7 +91,7 @@ export class BugetGoalsComponent implements OnInit {
     this.amount.setValue("");
     this.description.setValue("");
 
-    setTimeout(function() {window.location.reload();}, 2000);
+    //setTimeout(function() {window.location.reload();}, 2000);
   }
 
   editBudget() {
@@ -115,7 +115,7 @@ export class BugetGoalsComponent implements OnInit {
     this.amount.setValue("");
     this.description.setValue("");
 
-    setTimeout(function() {window.location.reload();}, 2000);
+    //setTimeout(function() {window.location.reload();}, 2000);
 
   }
 
