@@ -1,55 +1,56 @@
 <mat-card>
-        <h1>Transaction history</h1>
+    <h1>Transaction history</h1>
 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-               <!-- Date Column -->
-               <ng-container matColumnDef="Date">
-                    <th mat-header-cell *matHeaderCellDef> Date </th>
-                    <td mat-cell *matCellDef="let element "> {{element.Date}} </td>
-                </ng-container>
+        <!-- Date Column -->
+        <ng-container matColumnDef="Date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let element "> {{element.Date}} </td>
+        </ng-container>
 
-                <!-- ID Column -->
-                <ng-container matColumnDef="AccountID">
-                    <th mat-header-cell *matHeaderCellDef> AccountID </th>
-                    <td mat-cell *matCellDef="let element "> {{element.AccountID}} </td>
-                </ng-container>
+        <!-- ID Column -->
+        <ng-container matColumnDef="AccountID">
+            <th mat-header-cell *matHeaderCellDef> AccountID </th>
+            <td mat-cell *matCellDef="let element "> {{element.AccountID}} </td>
+        </ng-container>
 
-                <!-- AccountName Column -->
-                <ng-container matColumnDef="AccountName">
-                    <th mat-header-cell *matHeaderCellDef> AccountName </th>
-                    <td mat-cell *matCellDef="let element"> {{element.AccountName}} </td>
-                </ng-container>
-        
-                <!-- Category Column -->
-                <ng-container matColumnDef="Category">
-                    <th mat-header-cell *matHeaderCellDef> Category </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Category}} </td>
-                </ng-container>
-        
-                <!-- Payee Column -->
-                <ng-container matColumnDef="Payee">
-                    <th mat-header-cell *matHeaderCellDef> Payee</th>
-                    <td mat-cell *matCellDef="let element"> {{element.Payee}} </td>
-                </ng-container>
+        <!-- AccountName Column -->
+        <ng-container matColumnDef="AccountName">
+            <th mat-header-cell *matHeaderCellDef> AccountName </th>
+            <td mat-cell *matCellDef="let element"> {{element.AccountName}} </td>
+        </ng-container>
 
-                 <!-- Amount Column -->
-                 <ng-container matColumnDef="Amount">
-                        <th mat-header-cell *matHeaderCellDef> Amount </th>
-                        <td mat-cell *matCellDef="let element"> ${{element.Amount}}
-                    </ng-container>
+        <!-- Category Column -->
+        <ng-container matColumnDef="Category">
+            <th mat-header-cell *matHeaderCellDef> Category </th>
+            <td mat-cell *matCellDef="let element"> {{element.Category}} </td>
+        </ng-container>
 
-                 <!-- Memo Column -->
-                 <ng-container matColumnDef="Memo">
-                        <th mat-header-cell *matHeaderCellDef> Memo </th>
-                        <td mat-cell *matCellDef="let element"> {{element.Memo}} 
-                            <!-- <button mat-button>Edit</button></td> -->
-                    </ng-container>
-        
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        
-            </table>
-            <mat-paginator [pageSizeOptions]="[6]" showFirstLastButtons></mat-paginator>
+        <!-- Payee Column -->
+        <ng-container matColumnDef="Payee">
+            <th mat-header-cell *matHeaderCellDef> Payee</th>
+            <td mat-cell *matCellDef="let element"> {{element.Payee}} </td>
+        </ng-container>
+
+        <!-- Amount Column -->
+        <ng-container matColumnDef="Amount">
+            <th mat-header-cell *matHeaderCellDef> Amount </th>
+            <td mat-cell *matCellDef="let element"> ${{element.Amount}}
+        </ng-container>
+
+        <!-- Memo Column -->
+        <ng-container matColumnDef="Memo">
+            <th mat-header-cell *matHeaderCellDef> Memo </th>
+            <td mat-cell *matCellDef="let element"> {{element.Memo}}
+                <!-- <button mat-button>Edit</button></td> -->
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[6]" showFirstLastButtons></mat-paginator>
 
 </mat-card>
+<button (click)="helloWorld()">helloWorld</button>

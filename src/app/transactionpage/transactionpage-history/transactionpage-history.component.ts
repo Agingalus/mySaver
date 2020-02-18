@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Transactions } from '../../transaction';
 import { TransactionService } from '../../service'
@@ -12,12 +12,17 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 
 export class TransactionPageHistoryComponent implements OnInit {
+  @Output("somethingSilly") somethingSilly: EventEmitter<any> = new EventEmitter();
+  helloWorld() {
+    this.somethingSilly.emit();
+    console.log(" helloWorld");
+  }
 
-  displayedColumns: string[] = ['Date','AccountID', 'Payee', 'Category', 'Amount', 'Memo'];
-  
-  ourTransactions: Transactions[] 
+  displayedColumns: string[] = ['Date', 'AccountID', 'Payee', 'Category', 'Amount', 'Memo'];
+
+  ourTransactions: Transactions[]
   dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
- 
+
   getTransactions(): void {
     this.myTransactionService.getAllTransactions().subscribe((transactionData: Transactions[]) => {
       this.ourTransactions = transactionData;
@@ -26,13 +31,14 @@ export class TransactionPageHistoryComponent implements OnInit {
     })
   }
 
-  constructor(private myTransactionService: TransactionService, private router: Router) {}
-    @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-    ngOnInit() {
-  
-      this.getTransactions();
-      this.dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
-      this.dataSource.paginator = this.paginator;
-    }
+
+  constructor(private myTransactionService: TransactionService, private router: Router) { }
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  ngOnInit() {
+
+    this.getTransactions();
+    this.dataSource = new MatTableDataSource<Transactions>(this.ourTransactions);
+    this.dataSource.paginator = this.paginator;
+  }
 
 }

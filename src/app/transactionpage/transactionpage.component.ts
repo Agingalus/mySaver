@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-transactionpage',
   templateUrl: './transactionpage.component.html',
@@ -8,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionPageComponent implements OnInit {
 
-  constructor() { }
+  hello() {
+    console.log("hello")
+  }
+  somethingSilly() {
+    console.log("this is really silly");
+    console.log("im in the parent class");
+  }
+
+
+  constructor() {
+
+  }
 
   ngOnInit() {
   }
